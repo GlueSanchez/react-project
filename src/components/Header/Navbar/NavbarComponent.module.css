@@ -1,0 +1,31 @@
+.navbarItems{
+    justify-content: flex-end;
+}
+.opo{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.wrapper{
+    display: flex;
+    width: 100%;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbarBottom{
+justify-content: center;
+}
+.botNav{
+    display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+    .opo{
+        display: block;
+    }
+    .navbar{
+        display: block;
+    }
+}

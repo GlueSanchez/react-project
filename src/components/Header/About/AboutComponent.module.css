@@ -1,0 +1,25 @@
+.aboutContainer{
+    max-width: 830px;
+    width: 100%;
+    padding: 0 15px;
+}
+.aboutWrapper{
+    max-width: 500px;
+    width: 100%;
+    margin-left: 50px;
+    padding: 200px 0;
+}
+
+.aboutWrapper h1{
+    margin-bottom: 25px;
+}
+.aboutWrapper p{
+    margin-bottom: 35px;
+}
+.button{
+    background-color: brown;
+    border: none;
+}
+.button:hover{
+    background-color: brown;
+}
