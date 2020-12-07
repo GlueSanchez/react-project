@@ -1,31 +1,48 @@
-.navbarItems{
+.navbarItems {
+
+    flex-direction: column;
+}
+
+.navbarItem {
+    display: flex;
+    width: 100%;
     justify-content: flex-end;
 }
-.opo{
+
+.opo {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     width: 100%;
 }
-.navbar{
+
+.navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.navbarBottom{
-justify-content: center;
+
+.navbarBottom {
+    justify-content: center;
 }
-.botNav{
+.block{
+    display: flex;
+    justify-content: space-between;
+}
+.botNav {
     display: inline-block;
 }
+
 @media only screen and (max-width: 768px) {
-    .opo{
+    .opo {
         display: block;
     }
-    .navbar{
+
+    .navbar {
         display: block;
     }
 }

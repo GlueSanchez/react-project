@@ -1,13 +1,13 @@
 .aboutContainer{
     max-width: 830px;
     width: 100%;
-    padding: 0 15px;
 }
 .aboutWrapper{
     max-width: 500px;
     width: 100%;
-    margin-left: 50px;
-    padding: 200px 0;
+
+    padding: 200px 15px 200px 50px;
+
 }
 
 .aboutWrapper h1{
@@ -22,4 +22,10 @@
 }
 .button:hover{
     background-color: brown;
+}
+
+@media only screen and (max-width: 768px) {
+    .aboutWrapper{
+        padding: 150px 15px 150px 15px;
+    }
 }
