@@ -2,7 +2,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import Header from "./components/Header/Header";
-import ProductsComponent from "./components/Products/ProductsComponent";
+import ProductsFilter from "./components/Products/ProductsFilter";
+import Products from "./components/Products/Products";
+import Iframe from 'react-iframe'
 
 function App() {
     return (
@@ -14,142 +16,14 @@ function App() {
 
             </div>
             <div className='mainContainer'>
-                <ProductsComponent/>
+                <ProductsFilter/>
+                <Products/>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(5,1fr)',
-                    justifyItems: 'center',
-                    borderTop: '1px solid black',
-                    borderRight: '1px solid black',
-                }}>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '50px 15px',
-                        textAlign: "center",
-                        width: '100%',
-                        borderLeft: '1px solid black',
-                        borderBottom: '1px solid black',
-                    }}>
-                        <img src="https://pbs.twimg.com/media/DiHYZjOVAAA95Yc.jpg"
-                             alt=""
-                             width={75}
-                             height={75}/>
-                        <span style={{
-                            paddingBottom: '10px',
-                            maxWidth: '75px',
-                            marginTop: '20px'
-
-                        }}>Old Skool Shoes</span>
-                        <span style={{
-                            marginTop: '10px'
-                        }}> $59.99</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '50px 15px',
-                        textAlign: "center",
-                        width: '100%',
-                        borderLeft: '1px solid black',
-                        borderBottom: '1px solid black',
-                    }}>
-                        <img src="https://pbs.twimg.com/media/DiHYZjOVAAA95Yc.jpg"
-                             alt=""
-                             width={75}
-                             height={75}/>
-                        <span style={{
-                            paddingBottom: '10px',
-                            maxWidth: '75px',
-                            marginTop: '20px'
-
-                        }}>Old Skool Shoes</span>
-                        <span style={{
-                            marginTop: '10px'
-                        }}> $59.99</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '50px 15px',
-                        textAlign: "center",
-                        width: '100%',
-                        borderLeft: '1px solid black',
-                        borderBottom: '1px solid black',
-                    }}>
-                        <img src="https://pbs.twimg.com/media/DiHYZjOVAAA95Yc.jpg"
-                             alt=""
-                             width={75}
-                             height={75}/>
-                        <span style={{
-                            paddingBottom: '10px',
-                            maxWidth: '75px',
-                            marginTop: '20px'
-
-                        }}>Old Skool Shoes</span>
-                        <span style={{
-                            marginTop: '10px'
-                        }}> $59.99</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '50px 15px',
-                        textAlign: "center",
-                        width: '100%',
-                        borderLeft: '1px solid black',
-                        borderBottom: '1px solid black',
-                    }}>
-                        <img src="https://pbs.twimg.com/media/DiHYZjOVAAA95Yc.jpg"
-                             alt=""
-                             width={75}
-                             height={75}/>
-                        <span style={{
-                            paddingBottom: '10px',
-                            maxWidth: '75px',
-                            marginTop: '20px'
-
-                        }}>Old Skool Shoes</span>
-                        <span style={{
-                            marginTop: '10px'
-                        }}> $59.99</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '50px 15px',
-                        textAlign: "center",
-                        width: '100%',
-                        borderLeft: '1px solid black',
-                        borderBottom: '1px solid black',
-                    }}>
-                        <img src="https://pbs.twimg.com/media/DiHYZjOVAAA95Yc.jpg"
-                             alt=""
-                             width={75}
-                             height={75}/>
-                        <span style={{
-                            paddingBottom: '10px',
-                            maxWidth: '75px',
-                            marginTop: '20px'
-
-                        }}>Old Skool Shoes</span>
-                        <span style={{
-                            marginTop: '10px'
-                        }}> $59.99</span>
-                    </div>
-                </div>
-
+                <Iframe width={'100%'}
+                        height={'500px'}
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600.912199703771!2d24.22274701569057!3d49.31594637933502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a7ba628310eb9%3A0xdfa1cb37de064f03!2z0J_QsNC8J9GP0YLQvdC40LrQuCDQnNC70LjQvdC40YHRjNC60LA!5e0!3m2!1sen!2sua!4v1607361020325!5m2!1sen!2sua"
+                    frameBorder="0" aria-hidden="false"
+                    tabIndex="0"></Iframe>
             </div>
         </>
 

@@ -24,8 +24,8 @@
     background-color: brown;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 991px) {
     .aboutWrapper{
-        padding: 150px 15px 150px 15px;
+        padding: 100px 15px 100px 15px;
     }
 }

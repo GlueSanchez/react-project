@@ -1,7 +1,8 @@
 import React from 'react';
 import {Form} from "react-bootstrap";
 import c from  './ProductsComponent.module.css';
-function ProductsComponent(props) {
+
+function ProductsFilter(props) {
 
     return (
         <div>
@@ -30,4 +31,4 @@ function ProductsComponent(props) {
     );
 }
 
-export default ProductsComponent;
+export default ProductsFilter;
