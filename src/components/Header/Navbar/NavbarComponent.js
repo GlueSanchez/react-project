@@ -19,7 +19,7 @@ const NavbarComponent = (props) => {
                                 className={'d-inline-block align-top'}/>
                         </Navbar.Brand>
                         <div className={c.linkItems}>
-                            <a className={c.navLink} href="tel:+380123125955">+38 (012) 31-25-955</a>
+                            <a className={c.navLink} href="tel:+380934804230">+38 (012) 31-25-955</a>
                             <a className={c.navLink} href="tel:+380123125955">+38 (012) 31-25-955</a>
                         </div>
                     </div>
