@@ -8,16 +8,12 @@ const Products = (props) => {
             <div className={c.box}>
                 <Product/>
                 <Product/>
-                <Product/>
-                <Product/>
-            </div>
-            <div className={c.box}>
-                <Product/>
+
                 <Product/>
             </div>
             <div className={c.box}>
                 <Product/>
-                <Product/>
+
                 <Product/>
                 <Product/>
             </div>

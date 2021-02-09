@@ -1,0 +1,20 @@
+.contactsTitle {
+    text-align: center;
+}
+
+.contactsBlocks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contactsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contactsBlockText {
+
+}

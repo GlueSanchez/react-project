@@ -43,12 +43,13 @@ select {
     font: inherit;
 }
 
+
 .bgContainer {
+    width: 100%;
+    background-image: url("https://www.verywellhealth.com/thmb/Saj6SFcdQruzDv-71c7d14_Yzrs=/1167x785/filters:fill(87E3EF,1)/HEADSTONE-56a274843df78cf7727617f2.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    width: 100%;
-    background-image: url("https://www.itl.cat/pngfile/big/0-698_nature-wallpaper-grass-hd-nature-wallpaper-green-valley.jpg");
 }
 
 .mainContainer {

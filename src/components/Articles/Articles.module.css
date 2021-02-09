@@ -1,0 +1,73 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #f4f4f5;;
+}
+
+.aside {
+    max-width: 30%;
+    width: 100%;
+    max-height: 250px;
+    background-color: white;
+    margin: 10px;
+}
+
+.contentBlock {
+    width: 100%;
+
+}
+
+.info {
+    background-color: white;
+    margin: 10px;
+    padding: 15px;
+}
+
+.articles {
+    background-color: white;
+    margin: 10px;
+
+}
+
+
+
+.article + .article {
+    margin-top: 10px;
+}
+
+.articleImg {
+    max-width: 30%;
+    width: 100%;
+    min-height: 150px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg");
+}
+.articleImg.articleBigImg{
+    min-width: 100%;
+    min-height: 450px;
+}
+
+.articleBlock {
+    width: 100%;
+}
+
+.articleTitle {
+    font-weight: bold;
+}
+
+.articleText {
+}
+.articleLink{
+    display: flex;
+    min-height: 150px;
+    max-height: 150px;
+    align-items: center;
+}
+
+.articleBig{
+    padding: 10px;
+}

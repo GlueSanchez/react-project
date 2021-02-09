@@ -1,6 +1,7 @@
 import {Nav, Navbar} from "react-bootstrap";
 import React from "react";
 import c from './NavbarComponent.module.css';
+import {NavLink} from 'react-router-dom';
 
 const NavbarComponent = (props) => {
     return (
@@ -25,14 +26,14 @@ const NavbarComponent = (props) => {
                     </div>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={c.navbarDown}>
-                            <a className={`${c.navLink} ${c.round}`} href="#features">Features</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#pricing">Pricing</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#deets">More deets</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#hjkjhkj"> Dank memes</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#features">Features</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#pricing">Pricing</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#deets">More deets</a>
-                            <a className={`${c.navLink} ${c.round} `} href="#lklk"> Dank memes</a>
+                            <NavLink className={`${c.navLink} ${c.round}`} to="/gallery">Gallery</NavLink>
+                            <NavLink className={`${c.navLink} ${c.round} `} to="/">main</NavLink>
+                            <NavLink className={`${c.navLink} ${c.round} `} to={'/articles'}>articles</NavLink>
+                            {/*<NavLink className={`${c.navLink} ${c.round} `} href="#hjkjhkj"> Dank memes</NavLink>*/}
+                            {/*<NavLink className={`${c.navLink} ${c.round} `} href="#features">Features</NavLink>*/}
+                            {/*<NavLink className={`${c.navLink} ${c.round} `} href="#pricing">Pricing</NavLink>*/}
+                            {/*<NavLink className={`${c.navLink} ${c.round} `} href="#deets">More deets</NavLink>*/}
+                            {/*<NavLink className={`${c.navLink} ${c.round} `} href="#lklk"> Dank memes</NavLink>*/}
                         </Nav>
                     </Navbar.Collapse>
 
