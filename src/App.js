@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import Header from "./components/Header/Header";
@@ -9,15 +9,10 @@ import Articles from "./components/Articles/Articles";
 import Footer from "./components/Footer/Footer";
 import FullArticle from "./components/Articles/FullArticle/FullArticle";
 
-const App=()=> {
+const App = () => {
     return (
         <BrowserRouter>
-            <div className='bgContainer'>
-                <div className="mainContainer">
-                    <Header/>
-                </div>
-
-            </div>
+            <Header/>
             <div className='mainContainer'>
                 <Route exact path='/' component={MainPage}/>
                 <Route exact path='/articles' component={Articles}/>

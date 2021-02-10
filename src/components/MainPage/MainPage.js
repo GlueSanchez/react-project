@@ -3,11 +3,13 @@ import ProductsFilter from "../Products/ProductsFilter";
 import Products from "../Products/Products";
 import Iframe from "react-iframe";
 import Contacts from "../Contacts/Contacts";
+import AboutContainer from "../Header/About/AboutComponent";
 
 
 const MainPage = (props) => {
     return (
         <>
+            <AboutContainer />
             <ProductsFilter/>
             <Products/>
 
