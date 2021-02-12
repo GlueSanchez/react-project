@@ -1,6 +1,6 @@
 import {Nav, Navbar} from "react-bootstrap";
 import React from "react";
-import c from './NavbarComponent.module.scss';
+import c from './NavbarComponent.module.css';
 import {NavLink} from 'react-router-dom';
 
 const NavbarComponent = (props) => {

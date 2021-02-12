@@ -1,7 +1,7 @@
-$dark: #211e1d;
+
 
 .navbar {
-  background-color: $dark;
+  background-color: #211e1d;
   width: 100%;
   position: sticky;
   top: 0;
