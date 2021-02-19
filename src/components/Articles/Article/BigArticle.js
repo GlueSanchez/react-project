@@ -1,6 +1,5 @@
 import React from 'react';
 import c from './../Articles.module.css';
-import {NavLink} from "react-router-dom";
 
 const BigArticle = (props) => {
 

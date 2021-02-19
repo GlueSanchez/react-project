@@ -32,11 +32,30 @@
     background-color: brown;
 }
 .modal{
-    display: none;
+    display: block;
     position: fixed;
-    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-left: auto;
+    margin-right: auto;
     left: 0;
-    width: 25%;
-    height: 25%;
+    right: 0;
+    text-align: center;
+    width: 85%;
+    height: 50vh;
+    z-index: 11;
     background-color: rgba(0,0,0,1);
+}
+.arrow{
+    position: absolute;
+
+}
+.prevArrow{
+    left: -15px;
+}
+.nextArrow{
+    right: -15px;
+
 }
