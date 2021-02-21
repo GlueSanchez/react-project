@@ -1,4 +1,3 @@
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
@@ -9,6 +8,7 @@ import Gallery from "./components/Gallery/Gallery";
 import Articles from "./components/Articles/Articles";
 import Footer from "./components/Footer/Footer";
 import FullArticle from "./components/Articles/FullArticle/FullArticle";
+import Login from "./components/Login/Login";
 
 const App = () => {
     return (
@@ -19,8 +19,9 @@ const App = () => {
                 <Route exact path='/articles' component={Articles}/>
                 <Route path='/articles/:id' component={FullArticle}/>
                 <Route path='/gallery' component={Gallery}/>
-                <Footer/>
+                <Route path='/login' component={Login}/>
             </div>
+            <Footer/>
         </BrowserRouter>
 
     );

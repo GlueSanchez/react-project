@@ -31,6 +31,7 @@ const NavbarComponent = (props) => {
                         <NavLink className={`${c.navLink} ${c.round}`} to="/gallery">Gallery</NavLink>
                         <NavLink className={`${c.navLink} ${c.round} `} to="/">main</NavLink>
                         <NavLink className={`${c.navLink} ${c.round} `} to={'/articles'}>articles</NavLink>
+                        <NavLink className={`${c.navLink} ${c.round} `} to={'/login'}>login</NavLink>
                         {/*<NavLink className={`${c.navLink} ${c.round} `} href="#hjkjhkj"> Dank memes</NavLink>*/}
                         {/*<NavLink className={`${c.navLink} ${c.round} `} href="#features">Features</NavLink>*/}
                         {/*<NavLink className={`${c.navLink} ${c.round} `} href="#pricing">Pricing</NavLink>*/}

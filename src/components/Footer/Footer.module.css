@@ -1,0 +1,29 @@
+.footerBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: burlywood;
+    padding: 15px;
+}
+.footerLogo{}
+.footerLinks{
+
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+.link{
+    padding-left: 5px;
+    width: 50px !important;
+    height: 50px;
+}
