@@ -13,15 +13,10 @@
     flex-wrap: wrap;
 }
 
-.galleryItem {
-    min-width: 250px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 150px;
-    position: relative;
-    margin: 10px;
-    cursor: wait;
+.image {
+      top: 0;
+    width: 400px;
+    height: 400px;
 }
 
 .galleryItemNumber {
@@ -31,31 +26,39 @@
     width: 25px;
     background-color: brown;
 }
-.modal{
-    display: block;
-    position: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 
+.modal {
+    display: block;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
-    right: 0;
     text-align: center;
-    width: 85%;
-    height: 50vh;
-    z-index: 11;
-    background-color: rgba(0,0,0,1);
+   max-height: 500px;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 1);
 }
-.arrow{
+
+.item{
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.arrow {
     position: absolute;
 
 }
-.prevArrow{
+
+.close {
+    left: 50%;
+}
+
+.prevArrow {
     left: -15px;
 }
-.nextArrow{
+
+.nextArrow {
     right: -15px;
 
 }

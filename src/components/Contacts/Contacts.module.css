@@ -1,11 +1,21 @@
-.contactsTitle {
+.contacts{
+    margin-top: 100px;
+    margin-bottom: 100px;
     text-align: center;
 }
-
-.contactsBlocks {
+.contactsTitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.contactsBox{
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+}
+.contactsBlocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
 }
 
 .contactsBlock {
@@ -16,5 +26,9 @@
 }
 
 .contactsBlockText {
-
+    display: flex;
+    flex-direction: column;
+}
+.mapBlock{
+    width: 50%;
 }

@@ -1,0 +1,55 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.bgContainer {
+  width: 100%;
+  background-image: url("https://www.verywellhealth.com/thmb/Saj6SFcdQruzDv-71c7d14_Yzrs=/1167x785/filters:fill(87E3EF,1)/HEADSTONE-56a274843df78cf7727617f2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainContainer {
+  margin: 0 auto;
+  max-width: 1230px;
+  padding: 0 15px;
+  width: 100%;
+  flex: 1;
+}
+
+.loginBox {
+  display: flex;
+  justify-content: center;
+}
+
+.example-enter {
+  opacity: 0;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.example-exit {
+  opacity: 1;
+}
+
+.example-exit.example-exit-active {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+
+.example-exit-done {
+  opacity: 0;
+}

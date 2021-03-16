@@ -1,9 +1,9 @@
 .footerBox{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background: burlywood;
-    padding: 15px;
+    background: #322c29;
+    padding: 20px;
 }
 .footerLogo{}
 .footerLinks{

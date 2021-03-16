@@ -1,11 +1,11 @@
 import React from "react";
 import {Button} from "react-bootstrap";
 import c from './AboutComponent.module.css';
-
+import background from './../../../assets/images/backgroundAbout.jpg';
 const AboutContainer = (props) => {
     return (
         <>
-            <div className={c.aboutContainer}>
+            <div className={c.aboutContainer} style={{backgroundImage: `url('${background}')`}}>
                <div className={c.aboutWrapper}>
                    <h1>PEPE LAUGHT</h1>
                    <p>
@@ -23,3 +23,5 @@ const AboutContainer = (props) => {
 
 
 export default AboutContainer;
+
+
