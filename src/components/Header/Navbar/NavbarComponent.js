@@ -1,4 +1,4 @@
-import {Nav, Navbar} from "react-bootstrap";
+import {Button, ButtonGroup, Dropdown, Nav, Navbar} from "react-bootstrap";
 import React from "react";
 import c from './NavbarComponent.module.css';
 import {NavLink} from 'react-router-dom';
@@ -27,7 +27,24 @@ const NavbarComponent = (props) => {
                 </div>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className={c.navbarDown}>
-                        <NavLink className={`${c.navLink} ${c.round}`} to="/gallery">Gallery</NavLink>
+
+                        <Dropdown as={ButtonGroup}>
+                            <NavLink className={`${c.navLink}`} to="/gallery">Gallery</NavLink>
+
+                            <Dropdown.Toggle split id="dropdown-split-basic" />
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <NavLink to="/gallery-1">Gallery1</NavLink>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <NavLink to="/gallery-2">Gallery2</NavLink>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                <NavLink to="/gallery-3">Gallery3</NavLink>
+                            </Dropdown.Item>
+                            </Dropdown.Menu>
+                                                  </Dropdown>
+
                         <NavLink className={`${c.navLink} ${c.round} `} to="/">main</NavLink>
                         <NavLink className={`${c.navLink} ${c.round} `} to={'/articles'}>articles</NavLink>
                         <NavLink className={`${c.navLink} ${c.round} `} to={'/login'}>login</NavLink>

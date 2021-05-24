@@ -9,20 +9,19 @@ import Articles from "./components/Articles/Articles";
 import FullArticle from "./components/Articles/FullArticle/FullArticle";
 import Gallery from "./components/Gallery/Gallery";
 import Footer from "./components/Footer/Footer";
+import GalleryOnce from "./components/Gallery/GalleryOnce/GalleryOnce";
+import {Container} from "@material-ui/core";
+import User_Page from "./components/User_page/User_Page";
+import Admin from "./components/Admin/Admin";
+import Switch from "react-bootstrap/Switch";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <Header/>
-            <Route exact path='/' component={MainPage}/>
-            <div className='mainContainer'>
-                <Route exact path='/login' component={Login}/>
-                <Route exact path='/articles' component={Articles}/>
-                <Route path='/articles/:id' component={FullArticle}/>
-                <Route path='/gallery' component={Gallery}/>
-            </div>
-            <Footer/>
-        </BrowserRouter>
+                        <Route exact path='/admin' component={Admin}/>
+                        <Route exact path='/' component={User_Page}/>
+
+</BrowserRouter>
 
     );
 }

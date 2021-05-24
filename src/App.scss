@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700;900&display=swap');
 
 *,
 *::before,
@@ -6,9 +7,11 @@
 }
 
 #root {
+  font-family: 'Source Serif Pro', serif;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
 }
 
 .bgContainer {
@@ -52,4 +55,157 @@
 
 .example-exit-done {
   opacity: 0;
+}
+.content {
+  margin-bottom: 20px;
+  img {
+    cursor: pointer;
+  }
+
+
+  .col-text {
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      width: 100%;
+      text-transform: uppercase;
+      line-height: 4rem;
+      margin: 20px 0;
+      @media (max-width: 768px) {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+
+  .col-text-broken,
+  .col-image-broken {
+    margin: 30px 0;
+  }
+
+  .col-image {
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 400px;
+    }
+  }
+
+  .col-image-small {
+    margin: 30px 0;
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 300px;
+    }
+  }
+
+  .col-image-large {
+    margin: 30px 0;
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 700px;
+    }
+  }
+
+  .col-image-half {
+    margin: 30px 0;
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 500px;
+    }
+  }
+
+  // Gallery with link
+  .col-image-with-link {
+    margin-bottom: 20px;
+    a {
+      display: block;
+    }
+  }
+}
+
+// Wrapper for instructions
+.instructions {
+  padding: 30px 0;
+  margin-bottom: 30px;
+  background-color: lighten(#606e7a, 50);
+  color: white;
+  .instruction {
+    padding-left: 15px;
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: auto;
+      margin: 10px 0;
+      border: 2px solid var(--lighterGunmetal);
+      padding: 5px;
+    }
+
+    a {
+      color: var(--gunmetal);
+      margin: 15px 0;
+      font-weight: bold;
+      display: block;
+      text-decoration: underline;
+      text-transform: uppercase;
+      will-change: color;
+      transition: 0.3s ease;
+      &:hover {
+        color: var(--lighterGunmetal);
+      }
+    }
+  }
+
+  .code {
+    padding: 15px;
+  }
+}
+
+// Slick demo
+#container-with-slick {
+  .slick-prev, .slick-next {
+    &:before {
+      color: var(--gunmetal);
+    }
+  }
+}
+
+// Custom Captions
+.SRLCustomCaption .myCustomCaptionOne,
+.SRLCustomCaption .myCustomCaptionTwo {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    color: #33673B;
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
+
+.SRLCustomCaption .myCustomButton {
+  padding: 10px 20px;
+  background-color: #33673B;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  transition: 0.3s ease;
+  will-change: transform, background-color;
+
+  &:hover {
+    text-decoration: none;
+    background-color: darken(#33673B, 10);
+    transform: scale(1.1);
+  }
+
 }

@@ -1,0 +1,13 @@
+
+.gallery {
+    text-align: center;
+}
+
+.galleryWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.galleryItem {
+
+}

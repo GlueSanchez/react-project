@@ -11,12 +11,12 @@ const Products = (props) => {
 
                 <Product/>
             </div>
-            <div className={c.box}>
-                <Product/>
+            {/*<div className={c.box}>*/}
+            {/*    <Product/>*/}
 
-                <Product/>
-                <Product/>
-            </div>
+            {/*    <Product/>*/}
+            {/*    <Product/>*/}
+            {/*</div>*/}
         </div>
     );
 };
