@@ -3,44 +3,73 @@ import c from './Contacts.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faMapMarkerAlt, faPhoneAlt, faEnvelope, faUsers} from "@fortawesome/free-solid-svg-icons";
 import Iframe from "react-iframe";
-import {Nav} from "react-bootstrap";
+import {makeStyles} from "@material-ui/core/styles";
+import background from "../../assets/images/backgroundAbout.jpg";
+import {Link, Typography} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+    contactBox: {
+        padding: '50px 0',
+        margin: '100px 0 0 0 ',
+        backgroundColor: '#342d2b',
+    },
+    textColor: {
+        color: 'white'
+    },
+    linkColor: {
+        color: 'white',
+        '&:hover': {
+            color: 'white',
+            textDecoration: 'none'
+        }
+    }
+}));
 
 const Contacts = () => {
-
+    const classes = useStyles();
     return (
-        <div className={c.contacts}>
+        <div className={classes.contactBox}>
             <div className={c.contactsTitle}>
-              <h2>  Let's connect</h2>
+                <Typography className={classes.textColor} variant={'h4'}> Let's connect</Typography>
             </div>
             <div className={c.contactsBox}>
                 <div className={c.contactsBlocks}>
                     <div className={c.contactsBlock}>
-                        <FontAwesomeIcon icon={faMapMarkerAlt}/>
-                        Adress
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className={classes.textColor}/>
+                        <Typography className={classes.textColor} variant={'body2'}>
+                            Adress
+                        </Typography>
                         <div className={c.contactsBlockText}>
-                            <a href="https://www.google.com/maps?ll=49.315946,24.224936&z=16&t=m&hl=en&gl=UA&mapclient=embed&cid=16114384382516940547"
-                               target="_blank">
-                                Ivana Franka 8, Mlynys'ka, Lviv Oblast</a>
+                            <Link className={classes.linkColor}
+                                  href="https://www.google.com/maps?ll=49.315946,24.224936&z=16&t=m&hl=en&gl=UA&mapclient=embed&cid=16114384382516940547"
+                                  target="_blank">
+                                Ivana Franka 8, Mlynys'ka, Lviv Oblast</Link>
                         </div>
                     </div>
                     <div className={c.contactsBlock}>
-                        <FontAwesomeIcon icon={faPhoneAlt}/>
-                        Contacts
+                        <FontAwesomeIcon icon={faPhoneAlt} className={classes.textColor}/>
+                        <Typography className={classes.textColor} variant={'body2'}>
+                            Contacts
+                        </Typography>
                         <div className={c.contactsBlockText}>
-                            <a href="tel:+380979271652">+38 (097) 92-71-652</a>
-                            <a href="tel:+380668664271">+38 (066) 86-64-271</a>
+                            <Link className={classes.linkColor} href="tel:+380979271652">+38 (097) 92-71-652</Link>
+                            <Link className={classes.linkColor} href="tel:+380668664271">+38 (066) 86-64-271</Link>
                         </div>
                     </div>
                     <div className={c.contactsBlock}>
-                        <FontAwesomeIcon icon={faEnvelope}/>
-                        E-Mail
+                        <FontAwesomeIcon icon={faEnvelope} className={classes.textColor}/>
+                        <Typography className={classes.textColor} variant={'body2'}>
+                            E-Mail
+                        </Typography>
                         <div className={c.contactsBlockText}>
-                            <a href="mailto: abc@example.com">abc@example.com</a>
+                            <Link className={classes.linkColor} href="mailto: abc@example.com">abc@example.com</Link>
                         </div>
                     </div>
                     <div className={c.contactsBlock}>
-                        <FontAwesomeIcon icon={faUsers}/>
-                        Representatives
+                        <FontAwesomeIcon icon={faUsers} className={classes.textColor}/>
+                        <Typography className={classes.textColor} variant={'body2'}>
+                            Representatives
+                        </Typography>
                         <div className={c.contactsBlockText}>
                             Lorem ipsum dolor sit amet
                         </div>

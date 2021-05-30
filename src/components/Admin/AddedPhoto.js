@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Checkbox, FormControlLabel} from "@material-ui/core";
+import {Button, Checkbox, FormControlLabel, TableCell, TableRow} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -18,27 +18,27 @@ const useStyles = makeStyles((theme) => ({
 const AddedPhoto = ({img,handleDelete}) => {
     const classes = useStyles();
     return (
-        <div className={classes.imgItem} key={img.id}>
-            <div>
-                <FormControlLabel control={<Checkbox name="checkedC"/>} />
-            </div>
-            <div>
+        <TableRow style={{width: '100%'}}>
+            {/*<TableCell>*/}
+            {/*    <FormControlLabel control={<Checkbox name="checkedC"/>} />*/}
+            {/*</TableCell>*/}
+            <TableCell align={'left'}>
                 <img
                     className={classes.media}
                     src={img.imagePreviewUrl}/>
-            </div>
-            <div>
+            </TableCell>
+            <TableCell align={'center'}>
                 <FormControlLabel control={<Checkbox name="checkedC"/>} label="Одинарний"/>
                 <FormControlLabel control={<Checkbox name="checkedD"/>} label="Двойний"/>
                 <FormControlLabel control={<Checkbox name="checkedD"/>} label="Елітний"/>
 
-            </div>
-            <div>
+            </TableCell>
+            <TableCell align={'right'}>
                <Button onClick={()=>handleDelete(img.id)}>
                    <DeleteIcon/>
                </Button>
-            </div>
-        </div>
+            </TableCell>
+        </TableRow>
     );
 };
 

@@ -1,22 +1,18 @@
 import React from 'react';
 import c from './Product.module.css';
 import Product from "./Product";
+import { Grid} from "@material-ui/core";
 
-const Products = (props) => {
+const Products = () => {
     return (
         <div className={c.wrapper}>
-            <div className={c.box}>
+            <Grid justify="flex-start"
+                  alignItems="flex-start" container >
                 <Product/>
                 <Product/>
+                <Product/>
+            </Grid>
 
-                <Product/>
-            </div>
-            {/*<div className={c.box}>*/}
-            {/*    <Product/>*/}
-
-            {/*    <Product/>*/}
-            {/*    <Product/>*/}
-            {/*</div>*/}
         </div>
     );
 };

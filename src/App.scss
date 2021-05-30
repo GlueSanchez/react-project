@@ -56,8 +56,10 @@
 .example-exit-done {
   opacity: 0;
 }
+
 .content {
   margin-bottom: 20px;
+
   img {
     cursor: pointer;
   }
@@ -93,6 +95,7 @@
 
   .col-image-small {
     margin: 30px 0;
+
     img {
       width: 100%;
       object-fit: cover;
@@ -102,6 +105,7 @@
 
   .col-image-large {
     margin: 30px 0;
+
     img {
       width: 100%;
       object-fit: cover;
@@ -111,16 +115,19 @@
 
   .col-image-half {
     margin: 30px 0;
+
     img {
       width: 100%;
       object-fit: cover;
-      height: 500px;
+      height: 400px;
+      width: 300px;
     }
   }
 
   // Gallery with link
   .col-image-with-link {
     margin-bottom: 20px;
+
     a {
       display: block;
     }
@@ -133,6 +140,7 @@
   margin-bottom: 30px;
   background-color: lighten(#606e7a, 50);
   color: white;
+
   .instruction {
     padding-left: 15px;
     @media (max-width: 768px) {
@@ -155,6 +163,7 @@
       text-transform: uppercase;
       will-change: color;
       transition: 0.3s ease;
+
       &:hover {
         color: var(--lighterGunmetal);
       }

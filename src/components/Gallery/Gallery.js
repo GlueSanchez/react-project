@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import c from './Gallery.module.css';
-import GalleryItem from "./GalleryItems/GalleryItem";
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import {useSwipeable} from "react-swipeable";
-import {Col, Image, Row} from "react-bootstrap";
-import {faArrowLeft, faArrowRight, faExternalLinkAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { Image} from "react-bootstrap";
 import SimpleReactLightbox, {SRLWrapper} from 'simple-react-lightbox'
 import {makeStyles} from "@material-ui/core/styles";
+import example from './../../assets/images/example.jpg';
+import example2 from './../../assets/images/example2.jpg';
+import {Box, Container, Grid} from "@material-ui/core";
 
 const images = [
+    {image: example},
+    {image: example2},
     {image: 'https://picsum.photos/200/300'},
     {image: 'https://picsum.photos/200/320'},
     {image: 'https://picsum.photos/200/303'},
@@ -24,10 +23,8 @@ const useStyles = makeStyles((theme) => ({
     },
     imageText: {
         position: 'absolute',
-        left: '15px',
-        bottom: 0,
-        height: '25px',
-        width: '25px',
+        left: '0',
+        bottom: '0',
         color: 'white',
         backgroundColor: 'black',
         padding: '3px',
@@ -37,37 +34,44 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 const options = {
-    // Please note that "caption" is singular
-    caption: {
-        captionAlignment: 'start',
-        captionColor: '#FFFFFF',
-        captionContainerPadding: '0',
-        captionFontFamily: 'inherit',
-        captionFontSize: 'inherit',
-        captionFontStyle: 'inherit',
-        captionFontWeight: 'inherit',
-        captionTextTransform: 'inherit',
-        showCaption: true
+    thumbnails: {
+        showThumbnails: true,
+    },
+    settings: {
+        disablePanzoom: true,
+        disableWheelControls: true,
     }
 };
-const Gallery = (props) => {
+const Gallery = () => {
     const classes = useStyles();
 
     return (
-        <SimpleReactLightbox>
-            <SRLWrapper options={options}>
-                <div className="content">
-                    <div className="row">
-                        {images.map(img => (
-                            <div className="col-md-3 col-12 col-image-half">
-                                <Image className={classes.image} src={img.image} alt="#1"/>
-                                <div className={classes.imageText}>#1</div>
-                            </div>
-                        ))}
+        <Container>
+            <SimpleReactLightbox>
+                <SRLWrapper options={options}>
+                    <div className="content">
+                        <Grid justify="flex-start"
+                              alignItems="flex-start" container spacing={5}>
+
+                            {images.map(img => (
+                                <Grid item
+                                      xs={12} sm={6} md={4} lg={3}
+                                      className={'col-image-half'}>
+                                    <Box display={'flex'} justifyContent="center">
+                                        <Box className={classes.image} >
+                                            <Image src={img.image} alt="#1"/>
+                                            <div className={classes.imageText}>#1</div>
+                                        </Box>
+                                    </Box>
+
+                                </Grid>
+                            ))}
+                        </Grid>
+
                     </div>
-                </div>
-            </SRLWrapper>
-        </SimpleReactLightbox>
+                </SRLWrapper>
+            </SimpleReactLightbox>
+        </Container>
     );
 }
 

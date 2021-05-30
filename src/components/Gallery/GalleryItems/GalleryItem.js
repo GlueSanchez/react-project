@@ -7,15 +7,11 @@ const GalleryItem = (props) => {
     return (
         <div className={c.item}>
             <div className={c.itemWrapper}>
-                <Image height={500}
-                       width={500}
-                       className={c.image + ' ' + c.active}
-                       src={props.photo.image}
+                <Image className={c.image + ' ' + c.active}
+                     src={props.photo.image}
                        fluid/>
                 <span className={c.galleryItemNumber}>{props.id}</span>
-
-
-            </div>
+           </div>
         </div>
     );
 }

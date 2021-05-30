@@ -1,64 +1,250 @@
-import {Button, ButtonGroup, Dropdown, Nav, Navbar} from "react-bootstrap";
 import React from "react";
-import c from './NavbarComponent.module.css';
+
 import {NavLink} from 'react-router-dom';
 import logo from './../../../assets/images/logo.png';
+import {
+    AppBar,
+    Button,
+    ClickAwayListener, Divider,
+    Grow, Link,
+    MenuItem,
+    MenuList,
+    Paper,
+    Popper,
+    Toolbar,
+     useScrollTrigger
+} from "@material-ui/core";
+import {makeStyles} from '@material-ui/core/styles';
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TelegramIcon from "@material-ui/icons/Telegram";
+import PhoneIcon from "@material-ui/icons/Phone";
+import EmailIcon from "@material-ui/icons/Email";
+import c from '../../Footer/Footer.module.css';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    toolbar: {
+        backgroundColor: '#342d2b',
+        minHeight: 128,
+        alignItems: 'flex-start',
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(2),
+        flexDirection: 'column'
+    },
+    title: {
+        flexGrow: 1,
+        alignSelf: 'flex-end',
+    },
+    telNumbers: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+
+    },
+    topHeader: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    link: {
+        color: 'white',
+        textDecoration: 'none',
+        '&:hover': {
+            textDecoration: 'none',
+            color: 'white'
+        },
+    },
+    anchorLink: {
+        color: 'black',
+        textDecoration: 'none',
+        '&:hover': {
+            textDecoration: 'none',
+            color: 'black'
+        },
+    },
+    navLinks: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-around',
+        marginTop: '10px',
+
+    },
+    divider: {
+        background: 'rgba(255, 255, 255, 0.5)',
+        width: '100%',
+        margin: '10px 0px',
+    },
+    linksBox: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    socialLinks: {
+        marginRight: '10px',
+    },
+    buttonStyles: {
+        color: 'white',
+        border: '1px solid white',
+        borderRadius: '30px',
+    }
+}));
+
+function ElevationScroll(props) {
+    const {children, window} = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 0,
+        target: window ? window() : undefined,
+    });
+
+    return React.cloneElement(children, {
+        elevation: trigger ? 4 : 0,
+    });
+}
+
 
 const NavbarComponent = (props) => {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
 
-    return (
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    };
 
-        <Navbar className={c.navbar}
-                collapseOnSelect expand="lg">
-            <div className={c.navbarWrapper}>
-                <div className={c.navbarTop}>
-                    <Navbar.Toggle aria-controls={'responsive-navbar-nav'}/>
-                    <Navbar.Brand>
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = React.useRef(open);
+    React.useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+
+        prevOpen.current = open;
+    }, [open]);
+    return (<>
+        <div className={classes.root}>
+
+            <AppBar>
+                <Toolbar className={classes.toolbar}>
+                    <div className={classes.topHeader}>
                         <img
                             src={logo}
                             href={'/'}
-                            height={75}
-                            alt="logo"
-                            className={'d-inline-block align-top'}/>
-                    </Navbar.Brand>
-                    <div className={c.linkItems}>
-                        <a className={c.navLink} href="tel:+380979271652">+38 (097) 92-71-652</a>
-                        <a className={c.navLink} href="tel:+380668664271">+38 (066) 86-64-271</a></div>
-                </div>
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className={c.navbarDown}>
+                            height={60}
+                            alt="logo"/>
+                        <div className={classes.linksBox}>
+                            <div className={c.footerLinks + ' ' + classes.socialLinks}>
+                                <div className={c.row}>
+                                    <div className={c.column}>
+                                        <a href="https://www.facebook.com/granit.mlynyska/"
+                                           target="_blank">
+                                            <FacebookIcon fontSize="small"/>
+                                        </a>
+                                        <a href="https://google.com"
+                                           target="_blank">
+                                            <TelegramIcon fontSize="small"/>
+                                        </a>
+                                    </div>
+                                    <div className={c.column}>
+                                        <a href="https://google.com"
+                                           target="_blank">
+                                            <PhoneIcon fontSize="small"/>
+                                        </a>
+                                        <a href="https://google.com"
+                                           target="_blank">
+                                            <EmailIcon fontSize="small"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <Dropdown as={ButtonGroup}>
-                            <NavLink className={`${c.navLink}`} to="/gallery">Gallery</NavLink>
+                            <div className={classes.telNumbers}>
+                                <Link className={classes.link} href="tel:+380979271652">+38 (097) 92-71-652</Link>
+                                <Link className={classes.link} href="tel:+380668664271">+38 (066) 86-64-271</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <Divider variant="middle" className={classes.divider}/>
+                    <div className={classes.navLinks}>
+                        <Button
+                            className={classes.buttonStyles}
+                            ref={anchorRef}
+                            aria-controls={open ? 'menu-list-grow' : undefined}
+                            aria-haspopup="true"
+                            onClick={handleToggle}
+                        >
+                            Gallery
+                        </Button>
+                        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                            {({TransitionProps, placement}) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'}}
+                                >
+                                    <Paper>
+                                        <ClickAwayListener onClickAway={handleClose}>
+                                            <MenuList autoFocusItem={open} id="menu-list-grow"
+                                                      onKeyDown={handleListKeyDown}>
+                                                <MenuItem>
+                                                    <NavLink className={classes.anchorLink}
+                                                             to="/gallery/single">
+                                                        Одинарні
+                                                    </NavLink>
+                                                </MenuItem>
+                                                <MenuItem>
+                                                    <NavLink className={classes.anchorLink}
+                                                             to="/gallery/double">
+                                                        Подвійні
+                                                    </NavLink>
+                                                </MenuItem>
+                                                {/*<MenuItem onClick={handleClose}>Logout</MenuItem>*/}
+                                            </MenuList>
+                                        </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                            )}
+                        </Popper>
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to="/gallery">Gallery</NavLink>
+                        </Button>
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to="/">main</NavLink>
+                        </Button>
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to={'/articles'}>articles</NavLink>
+                        </Button>
+                        {/*<Button  color="primary">*/}
+                        {/*    <NavLink className={classes.link} to={'/login'}>login</NavLink>*/}
+                        {/*</Button>*/}
+                    </div>
 
-                            <Dropdown.Toggle split id="dropdown-split-basic" />
-                            <Dropdown.Menu>
-                                <Dropdown.Item>
-                                    <NavLink to="/gallery-1">Gallery1</NavLink>
-                                </Dropdown.Item>
-                                <Dropdown.Item>
-                                    <NavLink to="/gallery-2">Gallery2</NavLink>
-                                </Dropdown.Item>
-                                <Dropdown.Item>
-                                <NavLink to="/gallery-3">Gallery3</NavLink>
-                            </Dropdown.Item>
-                            </Dropdown.Menu>
-                                                  </Dropdown>
-
-                        <NavLink className={`${c.navLink} ${c.round} `} to="/">main</NavLink>
-                        <NavLink className={`${c.navLink} ${c.round} `} to={'/articles'}>articles</NavLink>
-                        <NavLink className={`${c.navLink} ${c.round} `} to={'/login'}>login</NavLink>
-                        {/*<NavLink className={`${c.navLink} ${c.round} `} href="#hjkjhkj"> Dank memes</NavLink>*/}
-                        {/*<NavLink className={`${c.navLink} ${c.round} `} href="#features">Features</NavLink>*/}
-                        {/*<NavLink className={`${c.navLink} ${c.round} `} href="#pricing">Pricing</NavLink>*/}
-                        {/*<NavLink className={`${c.navLink} ${c.round} `} href="#deets">More deets</NavLink>*/}
-                        {/*<NavLink className={`${c.navLink} ${c.round} `} href="#lklk"> Dank memes</NavLink>*/}
-                    </Nav>
-                </Navbar.Collapse>
-
-            </div>
-        </Navbar>
-    );
+                </Toolbar>
+            </AppBar>
+            <Toolbar/>
+        </div>
+    </>);
 };
 
 

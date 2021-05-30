@@ -1,16 +1,25 @@
 import React from "react";
-import {Button} from "react-bootstrap";
-import c from './AboutComponent.module.css';
 import background from './../../../assets/images/backgroundAbout.jpg';
-import diagranit from './../../../assets/images/diagranit-1.jpg';
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    paperContainer: {
+        backgroundImage: `url('${background}')`,
+        width: '100%',
+        height: 'calc(100vh - 25px)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        alignItems: 'flex-end',
+    },
+}));
+
 const AboutContainer = (props) => {
+    const classes = useStyles();
     return (
-        <>
-            <div className={c.aboutContainer} style={{backgroundImage: `url('${background}')`}}>
-
-            </div>
-        </>
-
+        <div className={classes.paperContainer}>
+        </div>
     );
 };
 

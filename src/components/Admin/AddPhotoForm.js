@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
-import TextField from '@material-ui/core/TextField';
 import {makeStyles} from '@material-ui/core/styles';
-import {Button, CardMedia, Checkbox, FormControlLabel, Radio, RadioGroup} from "@material-ui/core";
+import {
+    Button,
+    Paper,
+     Table,
+    TableContainer
+} from "@material-ui/core";
 import AddedPhoto from "./AddedPhoto";
 import { v4 as uuid } from 'uuid';
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +30,14 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        width: '85%'
     },
+    tableCon:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+    }
 }));
 
 const AddPhotoForm = () => {
@@ -69,8 +80,12 @@ const AddPhotoForm = () => {
                     </Button>
                 </label>
                <div className={classes.imageBox}>
+                   <TableContainer  component={Paper}>
+                       <Table>
                    {uploadImages.map(img =>  <AddedPhoto handleDelete={handleDelete} img={img}/>)}
-               </div>
+
+                       </Table></TableContainer>
+                   </div>
                 <Button color='primary' variant="contained">
                     Завантажити
                 </Button>
