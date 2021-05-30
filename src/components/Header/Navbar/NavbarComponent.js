@@ -1,18 +1,18 @@
 import React from "react";
-
+import clsx from 'clsx';
 import {NavLink} from 'react-router-dom';
 import logo from './../../../assets/images/logo.png';
 import {
     AppBar,
     Button,
     ClickAwayListener, Divider,
-    Grow, Link,
+    Grow, Link, List, ListItem, ListItemIcon, ListItemText,
     MenuItem,
     MenuList,
     Paper,
-    Popper,
+    Popper, SwipeableDrawer,
     Toolbar,
-     useScrollTrigger
+    useScrollTrigger
 } from "@material-ui/core";
 import {makeStyles} from '@material-ui/core/styles';
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -90,7 +90,8 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         border: '1px solid white',
         borderRadius: '30px',
-    }
+    },
+
 }));
 
 function ElevationScroll(props) {
@@ -110,7 +111,7 @@ function ElevationScroll(props) {
 }
 
 
-const NavbarComponent = (props) => {
+const NavbarComponent = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
@@ -195,7 +196,7 @@ const NavbarComponent = (props) => {
                             aria-haspopup="true"
                             onClick={handleToggle}
                         >
-                            Gallery
+                            Галерея
                         </Button>
                         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                             {({TransitionProps, placement}) => (
@@ -226,18 +227,17 @@ const NavbarComponent = (props) => {
                                 </Grow>
                             )}
                         </Popper>
-                        <Button className={classes.buttonStyles} color="primary">
-                            <NavLink className={classes.link} to="/gallery">Gallery</NavLink>
-                        </Button>
-                        <Button className={classes.buttonStyles} color="primary">
-                            <NavLink className={classes.link} to="/">main</NavLink>
-                        </Button>
-                        <Button className={classes.buttonStyles} color="primary">
-                            <NavLink className={classes.link} to={'/articles'}>articles</NavLink>
-                        </Button>
-                        {/*<Button  color="primary">*/}
-                        {/*    <NavLink className={classes.link} to={'/login'}>login</NavLink>*/}
+
+                        {/*<Button className={classes.buttonStyles} color="primary">*/}
+                        {/*    <NavLink className={classes.link} to="/gallery">Gallery</NavLink>*/}
                         {/*</Button>*/}
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to="/">Головна</NavLink>
+                        </Button>
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to={'/articles'}>Новини</NavLink>
+                        </Button>
+
                     </div>
 
                 </Toolbar>

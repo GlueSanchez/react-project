@@ -6,10 +6,10 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import logo from "../../assets/images/logo.png";
 import {Backdrop, Button, createStyles, Fade, makeStyles, Modal} from "@material-ui/core";
-import {Theme} from '@material-ui/core/styles';
+// import {Theme} from '@material-ui/core/styles';
 import Login from "../Login/Login";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(theme =>
     createStyles({
         modal: {
             display: 'flex',
@@ -28,7 +28,27 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             justifyContent: 'center',
             maxWidth: '500px'
-        }
+        },
+        footer: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            background: '#322c29',
+            padding: '20px',
+            flexDirection: 'row',
+            [theme.breakpoints.down('xs')]: {
+                padding: '10px',
+                flexDirection: 'column',
+            }
+        },
+        footerLinks: {
+            [theme.breakpoints.down('xs')]: {}
+        },
+        footerLink: {
+            [theme.breakpoints.down('xs')]: {
+                padding: '0 5px ',
+            }
+        },
     }),
 );
 const Footer = () => {
@@ -45,13 +65,13 @@ const Footer = () => {
 
 
     return (
-        <div className={c.footerBox}>
+        <div className={classes.footer}>
 
             <div className={c.footerLogo}>
                 <img
                     src={logo}
                     href={'/'}
-                    height={75}
+                    height={50}
                     alt="logo"/>
             </div>
             <div>
@@ -71,33 +91,30 @@ const Footer = () => {
                     }}
                 >
                     <Fade in={open}>
-                      <Login/>
+                        <Login/>
                     </Fade>
                 </Modal>
             </div>
-            <div className={c.footerLinks}>
-                <div className={c.row}>
-                    <div className={c.column}>
-                        <a href="https://www.facebook.com/granit.mlynyska/"
-                           target="_blank">
-                            <FacebookIcon fontSize="large"/>
-                        </a>
-                        <a href="https://google.com"
-                           target="_blank">
-                            <TelegramIcon fontSize="large"/>
-                        </a>
-                    </div>
-                    <div className={c.column}>
-                        <a href="https://google.com"
-                           target="_blank">
-                            <PhoneIcon fontSize="large"/>
-                        </a>
-                        <a href="https://google.com"
-                           target="_blank">
-                            <EmailIcon fontSize="large"/>
-                        </a>
-                    </div>
-                </div>
+            <div className={classes.footerLinks}>
+
+                <a className={classes.footerLink} href="https://www.facebook.com/granit.mlynyska/"
+                   target="_blank">
+                    <FacebookIcon fontSize="large"/>
+                </a>
+                <a className={classes.footerLink} href="https://google.com"
+                   target="_blank">
+                    <TelegramIcon fontSize="large"/>
+                </a>
+
+                <a className={classes.footerLink} href="https://google.com"
+                   target="_blank">
+                    <PhoneIcon fontSize="large"/>
+                </a>
+                <a className={classes.footerLink} href="https://google.com"
+                   target="_blank">
+                    <EmailIcon fontSize="large"/>
+                </a>
+
             </div>
 
         </div>
