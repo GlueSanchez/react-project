@@ -29,6 +29,7 @@
 .contactsBlockText {
     display: flex;
     flex-direction: column;
+    color: white;
 }
 .mapBlock{
     width: 50%;

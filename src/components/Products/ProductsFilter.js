@@ -8,23 +8,23 @@ function ProductsFilter(props) {
         <div>
             <div className={c.block}>
 
-                <h2>FEATURED PRODUCTS</h2>
-                <Form>
+                <h2>Види пам'ятників</h2>
+                {/*<Form>*/}
 
-                            <Form.Check inline
-                                        type='radio'
-                                        name={'radioBox'}
-                                        label="Men" id={`inline-radio-1`}/>
-                            <Form.Check inline
-                                        type='radio'
-                                        name={'radioBox'}
-                                        label="Woomen" id={`inline-radio-2`}/>
-                            <Form.Check inline
-                                        type='radio'
-                                        name={'radioBox'}
-                                        label="uniSEX" id={`inline-radio-3`}/>
+                {/*            <Form.Check inline*/}
+                {/*                        type='radio'*/}
+                {/*                        name={'radioBox'}*/}
+                {/*                        label="Men" id={`inline-radio-1`}/>*/}
+                {/*            <Form.Check inline*/}
+                {/*                        type='radio'*/}
+                {/*                        name={'radioBox'}*/}
+                {/*                        label="Woomen" id={`inline-radio-2`}/>*/}
+                {/*            <Form.Check inline*/}
+                {/*                        type='radio'*/}
+                {/*                        name={'radioBox'}*/}
+                {/*                        label="uniSEX" id={`inline-radio-3`}/>*/}
 
-                </Form>
+                {/*</Form>*/}
 
             </div>
         </div>

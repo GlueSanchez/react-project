@@ -22,19 +22,57 @@ const useStyles = makeStyles((theme) => ({
             color: 'white',
             textDecoration: 'none'
         }
-    }
+    },
+    contactsTitle: {
+        textAlign: 'center',
+        marginBottom: '20px',
+    },
+    contactsBox: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }
+    },
+    contactsBlock: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        [theme.breakpoints.down('sm')]: {
+            padding: '15px 5px',
+        }
+    },
+    contactsBlocks: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        [theme.breakpoints.down('sm')]: {
+            marginBottom: '20px',
+        },
+    },
+    mapBlock:{
+    width: '50%',
+        [theme.breakpoints.down('sm')]: {
+            width: '80%',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+        },
+}
 }));
 
 const Contacts = () => {
     const classes = useStyles();
     return (
         <div className={classes.contactBox}>
-            <div className={c.contactsTitle}>
+            <div className={classes.contactsTitle}>
                 <Typography className={classes.textColor} variant={'h4'}> Let's connect</Typography>
             </div>
-            <div className={c.contactsBox}>
-                <div className={c.contactsBlocks}>
-                    <div className={c.contactsBlock}>
+            <div className={classes.contactsBox}>
+                <div className={classes.contactsBlocks}>
+                    <div className={classes.contactsBlock}>
                         <FontAwesomeIcon icon={faMapMarkerAlt} className={classes.textColor}/>
                         <Typography className={classes.textColor} variant={'body2'}>
                             Adress
@@ -46,7 +84,7 @@ const Contacts = () => {
                                 Ivana Franka 8, Mlynys'ka, Lviv Oblast</Link>
                         </div>
                     </div>
-                    <div className={c.contactsBlock}>
+                    <div className={classes.contactsBlock}>
                         <FontAwesomeIcon icon={faPhoneAlt} className={classes.textColor}/>
                         <Typography className={classes.textColor} variant={'body2'}>
                             Contacts
@@ -56,7 +94,7 @@ const Contacts = () => {
                             <Link className={classes.linkColor} href="tel:+380668664271">+38 (066) 86-64-271</Link>
                         </div>
                     </div>
-                    <div className={c.contactsBlock}>
+                    <div className={classes.contactsBlock}>
                         <FontAwesomeIcon icon={faEnvelope} className={classes.textColor}/>
                         <Typography className={classes.textColor} variant={'body2'}>
                             E-Mail
@@ -65,7 +103,7 @@ const Contacts = () => {
                             <Link className={classes.linkColor} href="mailto: abc@example.com">abc@example.com</Link>
                         </div>
                     </div>
-                    <div className={c.contactsBlock}>
+                    <div className={classes.contactsBlock}>
                         <FontAwesomeIcon icon={faUsers} className={classes.textColor}/>
                         <Typography className={classes.textColor} variant={'body2'}>
                             Representatives
@@ -75,7 +113,7 @@ const Contacts = () => {
                         </div>
                     </div>
                 </div>
-                <div className={c.mapBlock}>
+                <div className={classes.mapBlock}>
                     <Iframe width={'100%'}
                             height={'500px'}
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600.912199703771!2d24.22274701569057!3d49.31594637933502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a7ba628310eb9%3A0xdfa1cb37de064f03!2z0J_QsNC8J9GP0YLQvdC40LrQuCDQnNC70LjQvdC40YHRjNC60LA!5e0!3m2!1sen!2sua!4v1607361020325!5m2!1sen!2sua"

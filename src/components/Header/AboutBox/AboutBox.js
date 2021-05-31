@@ -1,7 +1,8 @@
 import React from 'react';
 import diagranit from "../../../assets/images/diagranit-1.jpg";
 import {makeStyles} from "@material-ui/core/styles";
-import {Button, Grid, Typography} from "@material-ui/core";
+import {Button, Grid, Hidden, Typography} from "@material-ui/core";
+import withWidth from "@material-ui/core/withWidth";
 
 const useStyles = makeStyles((theme) => ({
     aboutWrapper: {
@@ -45,7 +46,7 @@ const AboutBox = () => {
     return (
         <div className={classes.aboutWrapper}>
             <Grid container spacing={3}>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={12} lg={6}>
                     <div className={classes.textBox}>
                         <Typography className={classes.textColor} variant={'h3'}>Про нас</Typography>
                         <Typography className={classes.textColor} variant="body1" gutterBottom>
@@ -65,14 +66,16 @@ const AboutBox = () => {
                         </div>
                     </div>
                 </Grid>
+                <Hidden only={['md', 'sm', 'xs']}>
                 <Grid item xs={6}>
                     <div className={classes.photoBox}>
                         <img className={classes.photo} src={diagranit}/>
                     </div>
                 </Grid>
+            </Hidden>
             </Grid>
         </div>
     );
 };
 
-export default AboutBox;
+export default withWidth()(AboutBox);
