@@ -20,8 +20,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import {Avatar, Box, Card} from "@material-ui/core";
 import logo from './../../assets/images/logo.png';
 import AddPhotoForm from "./AddPhotoForm";
-import {Route} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import Workers from "./Workers";
+import c from "../Articles/Articles.module.css";
 
 const drawerWidth = 240;
 
@@ -126,9 +127,7 @@ const Admin = () => {
                         <MenuIcon/>
                     </IconButton>
                     <img className={classes.menuLogo} src={logo} height={30}/>
-                    <Typography variant="h6" noWrap>
-                        Loh
-                    </Typography>
+
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -154,18 +153,24 @@ const Admin = () => {
                     ? <Box padding={1} display="flex" alignItems='center' flexDirection='column'>
                         <Avatar>H</Avatar>
                         <Typography variant="subtitle1">
-                            Loh Ivanovich
+                            Ivanovich
                         </Typography>
                     </Box>
                     : ''
                 }
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
+                    <NavLink to={`/admin/workers`}>
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon/></ListItemIcon>
+                            <ListItemText>Працівники</ListItemText>
                         </ListItem>
-                    ))}
+                    </NavLink>
+                    <NavLink to={`/admin/photoEditor`}>
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon/></ListItemIcon>
+                            <ListItemText>Фото</ListItemText>
+                        </ListItem>
+                    </NavLink>
                 </List>
 
             </Drawer>
@@ -176,7 +181,6 @@ const Admin = () => {
                     <Route path='/admin/photoEditor' component={AddPhotoForm}/>
                     {/*<Route exact path='/articles' component={Articles}/>*/}
                     {/*<Route exact path='/articles' component={Articles}/>*/}
-
                 </Card>
             </main>
         </div>

@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Box, Container, Grid} from "@material-ui/core";
 import SimpleReactLightbox, {SRLWrapper} from "simple-react-lightbox";
 import {makeStyles} from "@material-ui/core/styles";
- import photo from './../../assets/images/Img/Single/full/of1.jpg';
-
+import LazyLoad from 'react-lazy-load';
 const useStyles = makeStyles((theme) => ({
     image: {
         position: 'relative',
@@ -51,7 +50,7 @@ const GallerySingle = () => {
     }
     const [images, setImages] = useState([]);
     useEffect(() => {
-        fetch('https://localhost:44352/home/Singelimg', {
+        fetch('https://localhost:44352/api/home/uploadImg?id=3', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -92,27 +91,27 @@ const GallerySingle = () => {
                             {/*        </Grid>*/}
                             {/*    ))*/}
                             {/*    : 'Loading'}*/}
-                            <img src={photo} alt=""/>
-                            {/*{images ? images.map((img, i) => (*/}
-                            {/*        <Grid item*/}
-                            {/*              xs={12} sm={6} md={4} lg={3}*/}
-                            {/*              className={'col-image-half'}>*/}
-                            {/*            <Box display={'flex'} justifyContent="center">*/}
-                            {/*                <Box className={classes.image}>*/}
+                            {/*<img src={photo} alt=""/>*/}
+                            {images ? images.map((img, i) => (
+                                    <Grid item
+                                          xs={12} sm={6} md={4} lg={3}
+                                          className={'col-image-half'}>
+                                        <Box display={'flex'} justifyContent="center">
+                                            <Box className={classes.image}>
 
-                            {/*                    <LazyLoad*/}
-                            {/*                        onContentVisible={() => console.log('look ma I have been lazyloaded!')}>*/}
-                            {/*                        <a href={`https://localhost:44352/${img.pathFull}`}>*/}
-                            {/*                            <img src={`https://localhost:44352/${img.pathMini}`} alt={`#${i + 1}`}/>*/}
-                            {/*                            <div className={classes.imageText}>#{i + 1}</div>*/}
-                            {/*                        </a>*/}
-                            {/*                    </LazyLoad>*/}
-                            {/*                </Box>*/}
-                            {/*            </Box>*/}
+                                                <LazyLoad
+                                                    onContentVisible={() => console.log('look ma I have been lazyloaded!')}>
+                                                    <a href={img.pathFull}>
+                                                        <img src={img.pathMini} alt={`#${i + 1}`}/>
+                                                        <div className={classes.imageText}>#{i + 1}</div>
+                                                    </a>
+                                                </LazyLoad>
+                                            </Box>
+                                        </Box>
 
-                            {/*        </Grid>*/}
-                            {/*    ))*/}
-                            {/*    : 'Loading'}*/}
+                                    </Grid>
+                                ))
+                                : 'Loading'}
                         </Grid>
 
                     </div>
