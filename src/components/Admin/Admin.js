@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,6 +20,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import {Avatar, Box, Card} from "@material-ui/core";
 import logo from './../../assets/images/logo.png';
 import AddPhotoForm from "./AddPhotoForm";
+import {Route} from "react-router-dom";
+import Workers from "./Workers";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         marginRight: 36,
     },
-    menuLogo:{
+    menuLogo: {
         marginRight: theme.spacing(1),
     },
     hide: {
@@ -103,7 +106,7 @@ const Admin = () => {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar
                 position="fixed"
                 className={clsx(classes.appBar, {
@@ -120,7 +123,7 @@ const Admin = () => {
                             [classes.hide]: open,
                         })}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <img className={classes.menuLogo} src={logo} height={30}/>
                     <Typography variant="h6" noWrap>
@@ -143,33 +146,37 @@ const Admin = () => {
             >
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider/>
                 {open
                     ? <Box padding={1} display="flex" alignItems='center' flexDirection='column'>
-                            <Avatar>H</Avatar>
-                            <Typography variant="subtitle1">
-                                Loh Ivanovich
-                            </Typography>
-                        </Box>
+                        <Avatar>H</Avatar>
+                        <Typography variant="subtitle1">
+                            Loh Ivanovich
+                        </Typography>
+                    </Box>
                     : ''
                 }
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                            <ListItemText primary={text}/>
                         </ListItem>
                     ))}
                 </List>
 
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
+                <div className={classes.toolbar}/>
                 <Card>
-                    <AddPhotoForm/>
+                    <Route path='/admin/workers' component={Workers}/>
+                    <Route path='/admin/photoEditor' component={AddPhotoForm}/>
+                    {/*<Route exact path='/articles' component={Articles}/>*/}
+                    {/*<Route exact path='/articles' component={Articles}/>*/}
+
                 </Card>
             </main>
         </div>

@@ -49,8 +49,6 @@ function ScrollTop(props) {
 
 // Сторінка користувача
 const User_Page = (props) => {
-    // Використання стилів
-    const classes = useStyles();
     return (<>
             <Header/>
             <Toolbar id="back-to-top-anchor"/>
@@ -59,7 +57,7 @@ const User_Page = (props) => {
                 <Route exact path='/' component={MainPage}/>
                 <Route exact path='/articles' component={Articles}/>
                 <Route path='/articles/:id' component={FullArticle}/>
-                <Route exact path='/gallery' component={Gallery}/>
+                {/*<Route exact path='/gallery' component={Gallery}/>*/}
                 <Route path='/gallery/single' component={GallerySingle}/>
                 <Route path='/gallery/double' component={GalleryDouble}/>
                 {/*Кнопка "Вгору"*/}
