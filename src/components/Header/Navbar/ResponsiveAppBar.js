@@ -229,6 +229,14 @@ const ResponsiveAppBar = () => {
                                             </NavLink>
                                         </Button>
                                     </ListItem>
+                                    <ListItem>
+                                        <Button className={classes.buttonStyles} color="primary">
+                                            <NavLink className={classes.respLink}
+                                                     to="/articles">
+                                                Статті
+                                            </NavLink>
+                                        </Button>
+                                    </ListItem>
 
                                 </List>
                                 <Divider/>

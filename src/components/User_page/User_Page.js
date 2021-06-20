@@ -18,7 +18,17 @@ const useStyles = makeStyles((theme) => ({
         bottom: theme.spacing(15),
         right: theme.spacing(2),
     },
-
+    content:{
+        flex: '1 0 auto',
+    },
+    footer :{
+        flexShrink: '0',
+    },
+    main:{
+        [theme.breakpoints.up('lg')]: {
+            marginTop: '25px'
+        }
+    }
 }));
 
 // Функція для підняття сторінки вгору
@@ -49,25 +59,31 @@ function ScrollTop(props) {
 
 // Сторінка користувача
 const User_Page = (props) => {
+    const classes = useStyles();
     return (<>
-            <Header/>
-            <Toolbar id="back-to-top-anchor"/>
-            <main>
-                {/*Маршрути*/}
-                <Route exact path='/' component={MainPage}/>
-                <Route exact path='/articles' component={Articles}/>
-                <Route path='/articles/:id' component={FullArticle}/>
-                {/*<Route exact path='/gallery' component={Gallery}/>*/}
-                <Route path='/gallery/single' component={GallerySingle}/>
-                <Route path='/gallery/double' component={GalleryDouble}/>
-                {/*Кнопка "Вгору"*/}
-                <ScrollTop {...props}>
-                    <Fab color="secondary" size="small" aria-label="scroll back to top">
-                        <KeyboardArrowUpIcon/>
-                    </Fab>
-                </ScrollTop>
-            </main>
-            <Footer/>
+            <div className={classes.content}>
+                <Header/>
+                <Toolbar id="back-to-top-anchor"/>
+                <main className={classes.main}>
+                    {/*Маршрути*/}
+                    <Route exact path='/' component={MainPage}/>
+                    <Route exact path='/articles' component={Articles}/>
+                    <Route path='/articles/:id' component={FullArticle}/>
+                    {/*<Route exact path='/gallery' component={Gallery}/>*/}
+                    <Route path='/gallery/single' component={GallerySingle}/>
+                    <Route path='/gallery/double' component={GalleryDouble}/>
+                    {/*Кнопка "Вгору"*/}
+                    <ScrollTop {...props}>
+                        <Fab color="secondary" size="small" aria-label="scroll back to top">
+                            <KeyboardArrowUpIcon/>
+                        </Fab>
+                    </ScrollTop>
+                </main>
+            </div>
+            <div className={classes.footer}>
+                <Footer/>
+            </div>
+
         </>
     );
 };

@@ -19,6 +19,7 @@
     "react-iframe": "^1.8.0",
     "react-lazy-load": "^3.1.13",
     "react-scripts": "4.0.1",
+    "react-show-more-text": "^1.4.6",
     "react-swipeable": "^6.0.1",
     "react-transition-group": "^2.4.0",
     "simple-react-lightbox": "^3.6.6",
