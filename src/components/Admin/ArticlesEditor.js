@@ -17,8 +17,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {v4 as uuid} from 'uuid';
-import {Button} from "@material-ui/core";
+import {Button, Drawer, TextField} from "@material-ui/core";
 import WorkersModal from "./WorkersModal";
+import ShowMoreText from 'react-show-more-text';
+import ArticlesModal from "./ArticlesModal";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,11 +44,31 @@ const useStyles = makeStyles((theme) => ({
         top: 20,
         width: 1,
     },
+    articlesEditorForm: {
+        padding: '5px',
+        marginBottom: '15px'
+    },
+    input: {
+        margin: '10px 0'
+    },
 }));
 
 const ArticlesEditor = () => {
     const classes = useStyles();
-    const [articles, setArticles] = useState([]);
+    const [articles, setArticles] = useState([
+        {
+            idArticle: '19',
+            title: 'About us',
+            contents: 'loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem'
+        },
+        {
+            idArticle: '21',
+            title: 'About us', contents: 'lorem'
+        }, {
+            idArticle: '22',
+            title: 'About us', contents: 'lorem'
+        },
+    ]);
     useEffect(() => {
         fetch('https://localhost:44352/api/home/ArticleGetAll', {
             headers: {
@@ -60,26 +82,125 @@ const ArticlesEditor = () => {
                 console.log("Error Reading data " + err);
             });
     }, [])
+    const [inputValue, setInputValue] = useState({
+        title: '',
+        contents: '',
+    });
+    const handleChangeInput = (e) => {
+        setInputValue({title: e.target.value, contents: inputValue.contents});
+    };
+    const handleChangeTextArea = (e) => {
+        setInputValue({contents: e.target.value, title: inputValue.title});
+    };
+    const handleSend = () => {
+        if (inputValue.title !== '' && inputValue.contents !== '') {
+            setArticles(prevState => [...prevState, inputValue]);
+            setInputValue({
+                title: '',
+                contents: '',
+                idArticle: uuid(),
+            });
+        }
+
+    };
+    const handleDelete = (id) => {
+        setArticles(articles.filter(item => item.idArticle !== id));
+    };
+    const handleChangeValue = (itemChanged) => {
+        setArticles(articles.filter(item => item.idArticle !== itemChanged.idArticle))
+        setArticles(prevState => [...prevState, itemChanged])
+    };
     return (
         <div className={classes.root}>
+            <div className={classes.articlesEditorForm}>
+
+                <Typography variant={'h4'}>
+                    Додати статтю
+                </Typography>
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Заголовок статті"
+                    fullWidth
+                    variant="outlined"
+                    className={classes.input}
+                    onChange={handleChangeInput}
+                    value={inputValue.title}
+                    required
+                />
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Текст статті"
+                    multiline
+                    rows={10}
+                    fullWidth
+                    variant="outlined"
+                    className={classes.input}
+                    onChange={handleChangeTextArea}
+                    value={inputValue.contents}
+                    required
+                />
+                <Button
+                    onClick={handleSend}
+                    color={'primary'}
+                    variant="contained"
+                    type={'button'}>Додати статтю</Button>
+
+            </div>
+            <Drawer/>
+            <Typography variant={'h5'}>
+                Список статтей
+            </Typography>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Заголовок</TableCell>
-                            <TableCell align="right">текст</TableCell>
+                            <TableCell align="center">текст</TableCell>
+                            <TableCell align="center">Змінити</TableCell>
+                            <TableCell align="center">Видалити</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {articles ? articles.map((row) => (
-                            <TableRow key={row.idArticle}>
-                                <TableCell component="th" scope="row">
-                                    {row.title}
-                                </TableCell>
-                                <TableCell align="right">{row.contents}</TableCell>
-                            </TableRow>
-                        ))
-                        : ''}
+                        {articles ? articles.map((row) => {
+                                let id = row.idArticle;
+                                let text = row.contents;
+                                let title = row.title;
+                                return (
+                                    <TableRow key={row.idArticle}>
+                                        <TableCell component="th" scope="row">
+                                            {row.title}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <ShowMoreText
+                                                /* Default options */
+                                                lines={1}
+                                                more='Show more'
+                                                less='Show less'
+                                                className='content-css'
+                                                anchorClass='my-anchor-css-class'
+                                                expanded={false}
+                                                width={350}
+                                            >
+                                                {row.contents}
+                                            </ShowMoreText>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <Button>
+
+                                                <ArticlesModal {...{id, text, title, handleChangeValue}}/>
+
+                                            </Button>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <Button onClick={() => handleDelete(row.idArticle)}>видалити</Button>
+                                        </TableCell>
+
+                                    </TableRow>
+                                )
+                            }
+                            )
+
+                            : ''}
                     </TableBody>
                 </Table>
             </TableContainer>
