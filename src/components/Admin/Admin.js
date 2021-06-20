@@ -23,6 +23,7 @@ import AddPhotoForm from "./AddPhotoForm";
 import {NavLink, Route} from "react-router-dom";
 import Workers from "./Workers";
 import c from "../Articles/Articles.module.css";
+import ArticlesEditor from "./ArticlesEditor";
 
 const drawerWidth = 240;
 
@@ -171,6 +172,12 @@ const Admin = () => {
                             <ListItemText>Фото</ListItemText>
                         </ListItem>
                     </NavLink>
+                    <NavLink to={`/admin/articlesEditor`}>
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon/></ListItemIcon>
+                            <ListItemText>Статті</ListItemText>
+                        </ListItem>
+                    </NavLink>
                 </List>
 
             </Drawer>
@@ -179,6 +186,7 @@ const Admin = () => {
                 <Card>
                     <Route path='/admin/workers' component={Workers}/>
                     <Route path='/admin/photoEditor' component={AddPhotoForm}/>
+                    <Route path='/admin/articlesEditor' component={ArticlesEditor}/>
                     {/*<Route exact path='/articles' component={Articles}/>*/}
                     {/*<Route exact path='/articles' component={Articles}/>*/}
                 </Card>
