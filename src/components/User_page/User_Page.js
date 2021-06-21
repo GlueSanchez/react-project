@@ -10,6 +10,7 @@ import {Route} from "react-router-dom";
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import GallerySingle from "../Gallery/GallerySingle";
 import GalleryDouble from "../Gallery/GalleryDouble";
+import GalleryElite from "../Gallery/GalleryElite";
 
 // Стилі
 const useStyles = makeStyles((theme) => ({
@@ -18,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
         bottom: theme.spacing(15),
         right: theme.spacing(2),
     },
-    content:{
+    content: {
         flex: '1 0 auto',
     },
-    footer :{
+    footer: {
         flexShrink: '0',
     },
-    main:{
+    main: {
         [theme.breakpoints.up('lg')]: {
             marginTop: '25px'
         }
@@ -72,6 +73,7 @@ const User_Page = (props) => {
                     {/*<Route exact path='/gallery' component={Gallery}/>*/}
                     <Route path='/gallery/single' component={GallerySingle}/>
                     <Route path='/gallery/double' component={GalleryDouble}/>
+                    <Route path='/gallery/elite' component={GalleryElite}/>
                     {/*Кнопка "Вгору"*/}
                     <ScrollTop {...props}>
                         <Fab color="secondary" size="small" aria-label="scroll back to top">

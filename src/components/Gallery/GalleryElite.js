@@ -43,14 +43,14 @@ const miniImages = reqMini
     .map(path => miniImagesList.push({miniFile: reqMini(path)}))
 
 
-const GallerySingle = () => {
+const GalleryElite = () => {
     const classes = useStyles();
     for (let i = 0; i < fullImagesList.length; i++) {
         allImages.push({path1: fullImagesList[i], path2: miniImagesList[i]});
     }
     const [images, setImages] = useState([]);
     useEffect(() => {
-        fetch('https://localhost:44352/api/home/uploadImg?id=2', {
+        fetch('https://localhost:44352/api/home/uploadImg?id=1', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -71,27 +71,6 @@ const GallerySingle = () => {
                     <div className="content">
                         <Grid justify="flex-start"
                               alignItems="flex-start" container spacing={5}>
-
-                            {/*{allImages ? allImages.map((img, i) => (*/}
-                            {/*        <Grid item*/}
-                            {/*              xs={12} sm={6} md={4} lg={3}*/}
-                            {/*              className={'col-image-half'}>*/}
-                            {/*            <Box display={'flex'} justifyContent="center">*/}
-                            {/*                <Box className={classes.image}>*/}
-
-                            {/*                    <LazyLoad onContentVisible={() => console.log('look ma I have been lazyloaded!')}>*/}
-                            {/*                        <a href={img.path1.fullFile.default}>*/}
-                            {/*                            <img src={img.path2.miniFile.default} alt={`#${i + 1}`}/>*/}
-                            {/*                            <div className={classes.imageText}>#{i + 1}</div>*/}
-                            {/*                        </a>*/}
-                            {/*                    </LazyLoad>*/}
-                            {/*                </Box>*/}
-                            {/*            </Box>*/}
-
-                            {/*        </Grid>*/}
-                            {/*    ))*/}
-                            {/*    : 'Loading'}*/}
-                            {/*<img src={photo} alt=""/>*/}
                             {images ? images.map((img, i) => (
                                     <Grid item
                                           xs={12} sm={6} md={4} lg={3}
@@ -121,4 +100,4 @@ const GallerySingle = () => {
     );
 }
 
-export default GallerySingle;
+export default GalleryElite;

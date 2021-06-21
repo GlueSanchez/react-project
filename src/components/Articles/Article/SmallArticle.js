@@ -55,7 +55,7 @@ const SmallArticle = (props) => {
             <NavLink className={classes.articleLink} to={`/articles/${props.id}`}>
                 <div className={classes.smallArticleBlock}>
                     <img className={classes.smallArticleImg}
-                         src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg" alt="" />
+                         src={props.img} alt="" />
                     <div className={classes.smallArticleContent}>
 
                         <div className={classes.smallArticleTitle}>
