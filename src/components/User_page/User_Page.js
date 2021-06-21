@@ -74,6 +74,7 @@ const User_Page = (props) => {
                     <Route path='/gallery/single' component={GallerySingle}/>
                     <Route path='/gallery/double' component={GalleryDouble}/>
                     <Route path='/gallery/elite' component={GalleryElite}/>
+                    <Route component={MainPage}/>
                     {/*Кнопка "Вгору"*/}
                     <ScrollTop {...props}>
                         <Fab color="secondary" size="small" aria-label="scroll back to top">
