@@ -30,27 +30,27 @@ const options = {
         disableWheelControls: true,
     }
 };
-const allImages = [];
-const reqFull = require.context('./../../assets/images/Img/Single/full', true, /\.jpg$/)
-const reqMini = require.context('./../../assets/images/Img/Single/Mini', true, /\.jpg$/)
-const fullImagesList = [];
-const fullImages = reqFull
-    .keys()
-    .map(path => fullImagesList.push({fullFile: reqFull(path)}))
-const miniImagesList = [];
-const miniImages = reqMini
-    .keys()
-    .map(path => miniImagesList.push({miniFile: reqMini(path)}))
+// const allImages = [];
+// const reqFull = require.context('./../../assets/images/Img/Single/full', true, /\.jpg$/)
+// const reqMini = require.context('./../../assets/images/Img/Single/Mini', true, /\.jpg$/)
+// const fullImagesList = [];
+// const fullImages = reqFull
+//     .keys()
+//     .map(path => fullImagesList.push({fullFile: reqFull(path)}))
+// const miniImagesList = [];
+// const miniImages = reqMini
+//     .keys()
+//     .map(path => miniImagesList.push({miniFile: reqMini(path)}))
 
 
 const GalleryElite = () => {
     const classes = useStyles();
-    for (let i = 0; i < fullImagesList.length; i++) {
-        allImages.push({path1: fullImagesList[i], path2: miniImagesList[i]});
-    }
+    // for (let i = 0; i < fullImagesList.length; i++) {
+    //     allImages.push({path1: fullImagesList[i], path2: miniImagesList[i]});
+    // }
     const [images, setImages] = useState([]);
     useEffect(() => {
-        fetch('https://localhost:44352/api/home/uploadImg?id=1', {
+        fetch('https://localhost:44352/api/home/uploadImg?id=3', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
