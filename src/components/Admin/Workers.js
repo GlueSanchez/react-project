@@ -344,22 +344,22 @@ const Workers = () => {
             ), ...prevState];
         });
     };
-    const handleAddNewWorker=()=>{
-            setWorkers(prevState=> [...prevState, newWorker]);
-            setNewWorker(
-                {
-                    name: '',
-                    age: '',
-                    price: '',
-                    days: '',
-                    usability: '',
-                    id: '',
-                }
-            );
+    const handleAddNewWorker = () => {
+        setWorkers(prevState => [...prevState, newWorker]);
+        setNewWorker(
+            {
+                name: '',
+                age: '',
+                price: '',
+                days: '',
+                usability: '',
+                id: '',
+            }
+        );
 
 
     };
-    const handleChangeNewWorkerInput = (e)=>{
+    const handleChangeNewWorkerInput = (e) => {
         setNewWorker({...newWorker, [e.target.name]: e.target.value});
     };
     return (
@@ -475,9 +475,9 @@ const Workers = () => {
                                     <TableCell align="right">{row.days}</TableCell>
                                     <TableCell align="right">{row.usability}</TableCell>
                                     <TableCell align="right">
-                                        <Button>
-                                            <WorkersModal {...{id, usability, changeUsability, name}}/>
-                                        </Button>
+
+                                        <WorkersModal {...{id, usability, changeUsability, name}}/>
+
                                     </TableCell>
                                 </TableRow>
                             );

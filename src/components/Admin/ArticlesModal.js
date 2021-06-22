@@ -3,8 +3,9 @@ import {makeStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import {Button, TextField} from "@material-ui/core";
+import {Button, IconButton, TextField} from "@material-ui/core";
 import {v4 as uuid} from "uuid";
+import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -50,9 +51,9 @@ export default function ArticlesModal(props) {
     };
     return (
         <div>
-            <Button type="button" onClick={handleOpen}>
-                Змінити
-            </Button>
+            <IconButton type="button" onClick={handleOpen}>
+                <EditIcon/>
+            </IconButton>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"

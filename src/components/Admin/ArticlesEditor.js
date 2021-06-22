@@ -18,7 +18,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {v4 as uuid} from 'uuid';
 import {Button, Drawer, TextField} from "@material-ui/core";
-import WorkersModal from "./WorkersModal";
 import ShowMoreText from 'react-show-more-text';
 import ArticlesModal from "./ArticlesModal";
 
@@ -59,7 +58,7 @@ const ArticlesEditor = () => {
         {
             idArticle: '19',
             title: 'About us',
-            contents: 'loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem'
+            contents: 'hgfh fghf ghfghfgh fghfhfgh fghfhfghf ghfghf f hfgh f  f hfghfghf ghfhfgh fghff h fgfg'
         },
         {
             idArticle: '21',
@@ -170,7 +169,7 @@ const ArticlesEditor = () => {
                                         <TableCell component="th" scope="row">
                                             {row.title}
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell align="center" style={{maxWidth: '200px'}}>
                                             <ShowMoreText
                                                 /* Default options */
                                                 lines={1}
@@ -179,20 +178,18 @@ const ArticlesEditor = () => {
                                                 className='content-css'
                                                 anchorClass='my-anchor-css-class'
                                                 expanded={false}
-                                                width={350}
-                                            >
+                                                keepNewLines={true}
+                                                width={350}>
                                                 {row.contents}
                                             </ShowMoreText>
                                         </TableCell>
                                         <TableCell align="center">
-                                            <Button>
-
-                                                <ArticlesModal {...{id, text, title, handleChangeValue}}/>
-
-                                            </Button>
+                                            <ArticlesModal {...{id, text, title, handleChangeValue}}/>
                                         </TableCell>
                                         <TableCell align="center">
-                                            <Button onClick={() => handleDelete(row.idArticle)}>видалити</Button>
+                                            <IconButton onClick={() => handleDelete(row.idArticle)}>
+                                                <DeleteIcon/>
+                                            </IconButton>
                                         </TableCell>
 
                                     </TableRow>

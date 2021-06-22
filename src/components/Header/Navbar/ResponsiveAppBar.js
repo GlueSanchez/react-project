@@ -152,37 +152,6 @@ const ResponsiveAppBar = () => {
                             href={'/'}
                             height={45}
                             alt="logo"/>
-                        {/*<div className={classes.linksBox}>*/}
-                        {/*    <div className={c.footerLinks + ' ' + classes.socialLinks}>*/}
-                        {/*        <div className={c.row}>*/}
-                        {/*            <div className={c.column}>*/}
-                        {/*                <a href="https://www.facebook.com/granit.mlynyska/"*/}
-                        {/*                   target="_blank">*/}
-                        {/*                    <FacebookIcon fontSize="small"/>*/}
-                        {/*                </a>*/}
-                        {/*                <a href="https://google.com"*/}
-                        {/*                   target="_blank">*/}
-                        {/*                    <TelegramIcon fontSize="small"/>*/}
-                        {/*                </a>*/}
-                        {/*            </div>*/}
-                        {/*            <div className={c.column}>*/}
-                        {/*                <a href="https://google.com"*/}
-                        {/*                   target="_blank">*/}
-                        {/*                    <PhoneIcon fontSize="small"/>*/}
-                        {/*                </a>*/}
-                        {/*                <a href="https://google.com"*/}
-                        {/*                   target="_blank">*/}
-                        {/*                    <EmailIcon fontSize="small"/>*/}
-                        {/*                </a>*/}
-                        {/*            </div>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div className={classes.telNumbers}>*/}
-                        {/*        <Link className={classes.link} href="tel:+380979271652">+38 (097) 92-71-652</Link>*/}
-                        {/*        <Link className={classes.link} href="tel:+380668664271">+38 (066) 86-64-271</Link>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                         <Button onClick={toggleDrawer(true)}>
                             <MenuIcon/>
                         </Button>
@@ -200,14 +169,14 @@ const ResponsiveAppBar = () => {
                                 onKeyDown={toggleDrawer(false)}
                             >
                                 <List>
-                                    <ListItem>
-                                        <Button className={classes.buttonStyles} color="primary">
-                                            <NavLink className={classes.respLink}
-                                                     to="/">
-                                                Головна
-                                            </NavLink>
-                                        </Button>
-                                    </ListItem>
+                                    {/*<ListItem>*/}
+                                    {/*    <Button className={classes.buttonStyles} color="primary">*/}
+                                    {/*        <NavLink className={classes.respLink}*/}
+                                    {/*                 to="/">*/}
+                                    {/*            Головна*/}
+                                    {/*        </NavLink>*/}
+                                    {/*    </Button>*/}
+                                    {/*</ListItem>*/}
                                     <ListItem>
                                         <Button className={classes.buttonStyles} color="primary">
                                             <NavLink className={classes.respLink} to="/gallery">Галерея</NavLink>
@@ -226,6 +195,14 @@ const ResponsiveAppBar = () => {
                                             <NavLink className={classes.respLink}
                                                      to="/gallery/double">
                                                 Подвійні
+                                            </NavLink>
+                                        </Button>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Button className={classes.buttonStyles} color="primary">
+                                            <NavLink className={classes.respLink}
+                                                     to="/gallery/elite">
+                                                Елітні
                                             </NavLink>
                                         </Button>
                                     </ListItem>
