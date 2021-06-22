@@ -13,7 +13,7 @@ const App = () => {
         <>
             <Route path='/admin' component={Admin}/>
             <Route
-                render={({location}) => ['/admin', '/admin/workers', '/admin/photoEditor', '/admin/articlesEditor'].includes(location.pathname)
+                render={({location}) => ['/admin', '/admin/workers', '/admin/photoEditor', '/admin/articlesEditor', '/admin/monuments'].includes(location.pathname)
                     ? null
                     : <User_Page/>
                 }
