@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme =>
             padding: '20px',
             flexDirection: 'row',
             [theme.breakpoints.down('xs')]: {
-                padding: '10px',
+                padding: '11px',
                 flexDirection: 'column',
             }
         },
