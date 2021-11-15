@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import {NavLink} from 'react-router-dom';
 import logo from './../../../assets/images/logo.png';
 import {
-    AppBar,
+    AppBar, Backdrop,
     Button,
-    ClickAwayListener, Divider,
+    ClickAwayListener, Divider, Fade,
     Grow, Link, List, ListItem, ListItemIcon, ListItemText,
     MenuItem,
-    MenuList,
+    MenuList, Modal,
     Paper,
     Popper, SwipeableDrawer,
     Toolbar,
@@ -20,6 +20,8 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import PhoneIcon from "@material-ui/icons/Phone";
 import EmailIcon from "@material-ui/icons/Email";
 import c from '../../Footer/Footer.module.css';
+import Login from "../../Login/Login";
+import LockOpen from '@material-ui/icons/LockOpen';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        alignItems: 'center'
 
     },
     topHeader: {
@@ -91,7 +94,21 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid white',
         borderRadius: '30px',
     },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    linkBox: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
 
+        height: '36px'
+    },
+    icons: {
+        color: 'white'
+    }
 }));
 
 function ElevationScroll(props) {
@@ -127,6 +144,15 @@ const NavbarComponent = () => {
 
         setOpen(false);
     };
+    const [openModal, setOpenModal] = React.useState(false);
+
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
 
     function handleListKeyDown(event) {
         if (event.key === 'Tab') {
@@ -159,24 +185,47 @@ const NavbarComponent = () => {
                             <div className={c.footerLinks + ' ' + classes.socialLinks}>
                                 <div className={c.row}>
                                     <div className={c.column}>
-                                        <a href="https://www.facebook.com/granit.mlynyska/"
-                                           target="_blank">
-                                            <FacebookIcon fontSize="small"/>
-                                        </a>
-                                        <a href="https://google.com"
-                                           target="_blank">
-                                            <TelegramIcon fontSize="small"/>
-                                        </a>
+                                        <div className={classes.linkBox}>
+                                            <a href="https://www.facebook.com/granit.mlynyska/"
+                                               target="_blank">
+                                                <FacebookIcon className={classes.icons}/>
+                                            </a>
+                                        </div>
+                                        <div className={classes.linkBox}>
+                                            <a href="https://google.com"
+                                               target="_blank">
+                                                <TelegramIcon className={classes.icons}/>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div className={c.column}>
-                                        <a href="https://google.com"
-                                           target="_blank">
-                                            <PhoneIcon fontSize="small"/>
-                                        </a>
-                                        <a href="https://google.com"
-                                           target="_blank">
-                                            <EmailIcon fontSize="small"/>
-                                        </a>
+                                        <div className={classes.linkBox}>
+                                            <Button onClick={handleOpenModal}>
+                                                <LockOpen className={classes.icons}/>
+                                            </Button>
+                                            <Modal
+                                                aria-labelledby="transition-modal-title"
+                                                aria-describedby="transition-modal-description"
+                                                className={classes.modal}
+                                                open={openModal}
+                                                onClose={handleCloseModal}
+                                                closeAfterTransition
+                                                BackdropComponent={Backdrop}
+                                                BackdropProps={{
+                                                    timeout: 500,
+                                                }}
+                                            >
+                                                <Fade in={openModal}>
+                                                    <Login/>
+                                                </Fade>
+                                            </Modal>
+                                        </div>
+                                        <div className={classes.linkBox}>
+                                            <a href="https://google.com"
+                                               target="_blank">
+                                                <EmailIcon className={classes.icons}/>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +233,11 @@ const NavbarComponent = () => {
                             <div className={classes.telNumbers}>
                                 <Link className={classes.link} href="tel:+380979271652">+38 (097) 92-71-652</Link>
                                 <Link className={classes.link} href="tel:+380668664271">+38 (066) 86-64-271</Link>
+
+                                <Link className={classes.link} href={'#adress'}>Адреса: с.Млиниська</Link>
                             </div>
+
+
                         </div>
                     </div>
                     <Divider variant="middle" className={classes.divider}/>
@@ -236,6 +289,9 @@ const NavbarComponent = () => {
                         </Button>
                         <Button className={classes.buttonStyles} color="primary">
                             <NavLink className={classes.link} to={'/articles'}>Новини</NavLink>
+                        </Button>
+                        <Button className={classes.buttonStyles} color="primary">
+                            <NavLink className={classes.link} to={'#adress'}>Де нас найти</NavLink>
                         </Button>
 
                     </div>

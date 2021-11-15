@@ -38,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '500px',
         width: '100%',
         height: 'auto',
+    },
+    buttonStyles: {
+        color: 'white',
+        border: '1px solid white',
+        borderRadius: '30px',
     }
 }));
 
@@ -61,8 +66,8 @@ const AboutBox = () => {
                             rem rerum
                             unde voluptate voluptatibus.
                         </Typography>
-                        <div>
-                            <Button variant="contained" color="primary">Learn more</Button>
+                        <div >
+                            <Button className={classes.buttonStyles} >Дізнатися більше</Button>
                         </div>
                     </div>
                 </Grid>

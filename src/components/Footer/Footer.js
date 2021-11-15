@@ -11,11 +11,6 @@ import Login from "../Login/Login";
 
 const useStyles = makeStyles(theme =>
     createStyles({
-        modal: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
         paper: {
             backgroundColor: theme.palette.background.paper,
             border: '2px solid #000',
@@ -41,6 +36,9 @@ const useStyles = makeStyles(theme =>
                 flexDirection: 'column',
             }
         },
+        icons:{
+            color: 'white'
+        },
         footerLinks: {
             [theme.breakpoints.down('xs')]: {}
         },
@@ -53,16 +51,6 @@ const useStyles = makeStyles(theme =>
 );
 const Footer = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
 
     return (
         <div className={classes.footer}>
@@ -74,45 +62,25 @@ const Footer = () => {
                     height={50}
                     alt="logo"/>
             </div>
-            <div>
-                <Button onClick={handleOpen}>
-                    Login
-                </Button>
-                <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
-                    className={classes.modal}
-                    open={open}
-                    onClose={handleClose}
-                    closeAfterTransition
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                        timeout: 500,
-                    }}
-                >
-                    <Fade in={open}>
-                        <Login/>
-                    </Fade>
-                </Modal>
-            </div>
+
             <div className={classes.footerLinks}>
 
                 <a className={classes.footerLink} href="https://www.facebook.com/granit.mlynyska/"
                    target="_blank">
-                    <FacebookIcon fontSize="large"/>
+                    <FacebookIcon fontSize="large" className={classes.icons}/>
                 </a>
                 <a className={classes.footerLink} href="https://google.com"
                    target="_blank">
-                    <TelegramIcon fontSize="large"/>
+                    <TelegramIcon fontSize="large" className={classes.icons}/>
                 </a>
 
                 <a className={classes.footerLink} href="https://google.com"
                    target="_blank">
-                    <PhoneIcon fontSize="large"/>
+                    <PhoneIcon fontSize="large" className={classes.icons}/>
                 </a>
                 <a className={classes.footerLink} href="https://google.com"
                    target="_blank">
-                    <EmailIcon fontSize="large"/>
+                    <EmailIcon fontSize="large" className={classes.icons}/>
                 </a>
 
             </div>

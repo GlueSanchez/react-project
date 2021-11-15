@@ -30,7 +30,7 @@ const Articles = () => {
     const classes = useStyles();
     const [article, setArticle] = useState([]);
     useEffect(() => {
-        fetch('https://localhost:44352/api/home/ArticleGetAll', {
+        fetch('npm', {
             headers: {
                 'Content-Type': 'application/json',
             }
