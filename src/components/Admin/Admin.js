@@ -24,6 +24,7 @@ import {NavLink, Route} from "react-router-dom";
 import Workers from "./Workers";
 import c from "../Articles/Articles.module.css";
 import ArticlesEditor from "./ArticlesEditor";
+import Monuments from "./Monuments";
 
 const drawerWidth = 240;
 
@@ -178,6 +179,12 @@ const Admin = () => {
                             <ListItemText>Статті</ListItemText>
                         </ListItem>
                     </NavLink>
+                    <NavLink to={`/admin/monuments`}>
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon/></ListItemIcon>
+                            <ListItemText>Пам'ятники</ListItemText>
+                        </ListItem>
+                    </NavLink>
                 </List>
 
             </Drawer>
@@ -187,7 +194,8 @@ const Admin = () => {
                     <Route path='/admin/workers' component={Workers}/>
                     <Route path='/admin/photoEditor' component={AddPhotoForm}/>
                     <Route path='/admin/articlesEditor' component={ArticlesEditor}/>
-                    {/*<Route exact path='/articles' component={Articles}/>*/}
+                    <Route exact path='/admin/monuments' component={Monuments}/>
+
                     {/*<Route exact path='/articles' component={Articles}/>*/}
                 </Card>
             </main>

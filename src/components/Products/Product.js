@@ -35,17 +35,7 @@ const Product = (props) => {
         <Grid item xs={12} sm={12} md={4} lg={3}
               className={classes.gridWrapper}
         >
-            {/*<Box display={'flex'} justifyContent="center">*/}
-            {/*   <img src={props.img}*/}
-            {/*        style={{objectFit: 'cover'}}*/}
-            {/*        alt=""*/}
-            {/*        width={300}*/}
-            {/*        height={400}*/}
-            {/*        />*/}
-            {/*        <Typography>*/}
-            {/*            {props.text}*/}
-            {/*        </Typography>*/}
-            {/*</Box>*/}
+
             <div className={classes.wrapper}>
                 <Card className={classes.root}>
                     <CardActionArea>

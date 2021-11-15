@@ -273,6 +273,12 @@ const NavbarComponent = () => {
                                                         Подвійні
                                                     </NavLink>
                                                 </MenuItem>
+                                                <MenuItem>
+                                                    <NavLink className={classes.anchorLink}
+                                                             to="/gallery/elite">
+                                                        Елітні
+                                                    </NavLink>
+                                                </MenuItem>
                                                 {/*<MenuItem onClick={handleClose}>Logout</MenuItem>*/}
                                             </MenuList>
                                         </ClickAwayListener>

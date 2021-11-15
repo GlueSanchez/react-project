@@ -65,7 +65,8 @@ const BigArticle = (props) => {
                 <div className={classes.bigArticleTitle}>
                     { article.title}
                 </div>
-                <img className={classes.bigArticleImg} src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg" alt="" />
+                <img className={classes.bigArticleImg}
+                     src={article.pathFull} alt="" />
 
                 <div className={classes.bigArticleText}>
                     {article.contents}

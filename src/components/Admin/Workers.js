@@ -17,7 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {v4 as uuid} from 'uuid';
-import {Button} from "@material-ui/core";
+import {Button, TextField} from "@material-ui/core";
 import WorkersModal from "./WorkersModal";
 
 
@@ -257,6 +257,18 @@ const useStyles = makeStyles((theme) => ({
         top: 20,
         width: 1,
     },
+    articlesEditorForm: {
+        padding: '5px',
+        marginBottom: '15px',
+    },
+    inputBlock: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        margin: '15px 0'
+    },
+    input: {
+        marginRight: '15px'
+    },
 }));
 
 const Workers = () => {
@@ -266,6 +278,16 @@ const Workers = () => {
     const [orderBy, setOrderBy] = React.useState('price');
     const [selected, setSelected] = React.useState([]);
     const [dense, setDense] = React.useState(false);
+    const [newWorker, setNewWorker] = useState(
+        {
+            name: '',
+            age: '',
+            price: '',
+            days: '',
+            usability: '',
+            id: uuid(),
+        }
+    );
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -322,69 +344,148 @@ const Workers = () => {
             ), ...prevState];
         });
     };
+    const handleAddNewWorker = () => {
+        setWorkers(prevState => [...prevState, newWorker]);
+        setNewWorker(
+            {
+                name: '',
+                age: '',
+                price: '',
+                days: '',
+                usability: '',
+                id: '',
+            }
+        );
+
+
+    };
+    const handleChangeNewWorkerInput = (e) => {
+        setNewWorker({...newWorker, [e.target.name]: e.target.value});
+    };
     return (
         <div className={classes.root}>
+            <div className={classes.articlesEditorForm}>
 
-                <EnhancedTableToolbar numSelected={selected.length}
-                                      deleteSelectedItems={deleteSelectedItems}/>
-                <TableContainer>
-                    <Table
-                        className={classes.table}
-                        aria-labelledby="tableTitle"
-                        size={dense ? 'small' : 'medium'}
-                        aria-label="enhanced table"
-                    >
-                        <EnhancedTableHead
-                            classes={classes}
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
-                            rowCount={workers.length}
-                        />
-                        <TableBody>
-                            {workers.map((row, index) => {
-                                const isItemSelected = isSelected(row.id);
-                                let id = row.id;
-                                let usability = row.usability;
-                                let name = row.name;
-                                const labelId = `enhanced-table-checkbox-${index}`;
-                                return (
-                                    <TableRow
-                                        hover
-                                        onClick={(event) => handleClick(event, row.id)}
-                                        role="checkbox"
-                                        aria-checked={isItemSelected}
-                                        tabIndex={-1}
-                                        key={row.id}
-                                        selected={isItemSelected}
-                                    >
-                                        <TableCell padding="checkbox">
-                                            <Checkbox
-                                                checked={isItemSelected}
-                                                inputProps={{'aria-labelledby': labelId}}
-                                            />
-                                        </TableCell>
-                                        <TableCell component="th" id={labelId} scope="row" padding="none">
-                                            {row.name}
-                                        </TableCell>
-                                        <TableCell align="right">{row.price}</TableCell>
-                                        <TableCell align="right">{row.age}</TableCell>
-                                        <TableCell align="right">{row.days}</TableCell>
-                                        <TableCell align="right">{row.usability}</TableCell>
-                                        <TableCell align="right">
-                                            <Button>
-                                                <WorkersModal {...{id, usability, changeUsability, name}}/>
-                                            </Button>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                додати нового
+                <Typography variant={'h4'}>
+                    Додати працівника
+                </Typography>
+                <div className={classes.inputBlock}>
+                    <TextField
+                        id="outlined-basic"
+                        label="ПІБ"
+                        variant="outlined"
+                        className={classes.input}
+                        name={'name'}
+                        onChange={handleChangeNewWorkerInput}
+                        value={newWorker.name}
+                    />
+                    <TextField
+                        id="outlined-basic"
+                        label="Зарплата"
+                        variant="outlined"
+                        className={classes.input}
+                        name={'price'}
+                        onChange={handleChangeNewWorkerInput}
+                        value={newWorker.price}
+                    />
+                    <TextField
+                        id="outlined-basic"
+                        label="Вік"
+                        variant="outlined"
+                        className={classes.input}
+                        name={'age'}
+                        onChange={handleChangeNewWorkerInput}
+                        value={newWorker.age}
+                    />
+                </div>
+                <div className={classes.inputBlock}>
+                    <TextField
+                        id="outlined-basic"
+                        label="Дні роботи"
+                        variant="outlined"
+                        className={classes.input}
+                        name={'days'}
+                        onChange={handleChangeNewWorkerInput}
+                        value={newWorker.days}
+                    />
+
+                    <TextField
+                        id="outlined-basic"
+                        label="Ставка"
+                        variant="outlined"
+                        className={classes.input}
+                        name={'usability'}
+                        onChange={handleChangeNewWorkerInput}
+                        value={newWorker.usability}
+                    />
+                </div>
+                <Button
+                    onClick={handleAddNewWorker}
+                    color={'primary'}
+                    variant="contained"
+                    type={'button'}>Додати</Button>
+
+            </div>
+            <EnhancedTableToolbar numSelected={selected.length}
+                                  deleteSelectedItems={deleteSelectedItems}/>
+            <TableContainer>
+                <Table
+                    className={classes.table}
+                    aria-labelledby="tableTitle"
+                    size={dense ? 'small' : 'medium'}
+                    aria-label="enhanced table"
+                >
+                    <EnhancedTableHead
+                        classes={classes}
+                        numSelected={selected.length}
+                        order={order}
+                        orderBy={orderBy}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={workers.length}
+                    />
+                    <TableBody>
+                        {workers.length ? workers.map((row, index) => {
+                            const isItemSelected = isSelected(row.id);
+                            let id = row.id;
+                            let usability = row.usability;
+                            let name = row.name;
+                            const labelId = `enhanced-table-checkbox-${index}`;
+                            return (
+                                <TableRow
+                                    hover
+                                    onClick={(event) => handleClick(event, row.id)}
+                                    role="checkbox"
+                                    aria-checked={isItemSelected}
+                                    tabIndex={-1}
+                                    key={row.id}
+                                    selected={isItemSelected}
+                                >
+                                    <TableCell padding="checkbox">
+                                        <Checkbox
+                                            checked={isItemSelected}
+                                            inputProps={{'aria-labelledby': labelId}}
+                                        />
+                                    </TableCell>
+                                    <TableCell component="th" id={labelId} scope="row" padding="none">
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell align="right">{row.price}</TableCell>
+                                    <TableCell align="right">{row.age}</TableCell>
+                                    <TableCell align="right">{row.days}</TableCell>
+                                    <TableCell align="right">{row.usability}</TableCell>
+                                    <TableCell align="right">
+
+                                        <WorkersModal {...{id, usability, changeUsability, name}}/>
+
+                                    </TableCell>
+                                </TableRow>
+                            );
+                        }) : 'Додайте працівників'}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+
 
         </div>
     );

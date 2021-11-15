@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import c from './Articles.module.css';
 import SmallArticle from "./Article/SmallArticle";
-import { Card, CardContent, createStyles, makeStyles } from "@material-ui/core";
+import {Card, CardContent, createStyles, List, ListItem, ListItemText, makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles(theme =>
     createStyles({
@@ -24,6 +24,9 @@ const useStyles = makeStyles(theme =>
         }
     }),
 );
+function ListItemLink(props) {
+    return <ListItem button component="NavLink" {...props} />;
+}
 
 
 const Articles = () => {
@@ -44,36 +47,19 @@ const Articles = () => {
     }, [])
 
     return (
-        // <div className={c.wrapper}>
-        //     <aside className={c.aside}>
-        //         menu
-        //     </aside>
-        //     <div className={c.contentBlock}>
-        //         <div className={c.info}>
-        //             <div className={c.infoTitle}>Корисна Інфа</div>
-        //             <div className={c.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At culpa
-        //                 deserunt eos eveniet excepturi explicabo ipsa iusto nihil odit reprehenderit similique, sit
-        //                 tenetur, unde ut.
-        //             </div>
-        //         </div>
-        //         <div className={c.articles}>
-        //             {
-        //                 article ?
-        //                     article.map(item =>
-        //                         <SmallArticle title={item.title}
-        //                                       text={item.contents}
-        //                                       id={item.idArticle} />
-        //                     )
-        //                     : 'loading'
-        //             }
-        //         </div>
-        //     </div>
-        //
-        // </div>
         <div className={classes.articleBlock}>
             <Card className={classes.mainBox}>
                 <CardContent>
-                    main
+                    <List component="nav" aria-label="secondary mailbox folders">
+                        {article ?
+                            article.map(item => (
+                                <ListItemLink href={`/articles/${item.idArticle}`}>
+                                    <ListItemText primary={ item.title} />
+                                </ListItemLink>
+                            ))
+                            : ''}
+
+                    </List>
                 </CardContent>
             </Card>
             <Card className={classes.articlesBox}>
@@ -81,7 +67,8 @@ const Articles = () => {
                     article.map(item =>
                         <SmallArticle title={item.title}
                                       text={item.contents}
-                                      id={item.idArticle} />                      )
+                                      id={item.idArticle}
+                        img={item.pathFull}/>                      )
                     : 'loading'
                 }
             </Card>
