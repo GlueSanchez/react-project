@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import c from './Articles.module.css';
+import React, {useEffect, useState} from 'react';
 import SmallArticle from "./Article/SmallArticle";
 import {Card, CardContent, createStyles, List, ListItem, ListItemText, makeStyles} from "@material-ui/core";
+import {useSelector} from "react-redux";
 
+const axios = require('axios');
 const useStyles = makeStyles(theme =>
     createStyles({
         articleBlock: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles(theme =>
         }
     }),
 );
+
 function ListItemLink(props) {
     return <ListItem button component="NavLink" {...props} />;
 }
@@ -31,20 +33,28 @@ function ListItemLink(props) {
 
 const Articles = () => {
     const classes = useStyles();
+    // const articles = useSelector(state => state.articles);
     const [article, setArticle] = useState([]);
     useEffect(() => {
-        fetch('npm', {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
+
+        fetch('https://pmgranit.com.ua/api/article',
+            {
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Credentials': true
+                }
+            })
             .then(response => response.json())
-            .then(data => setArticle((prevState) => [...prevState, ...data]))
+            .then(response => console.log(response))
+            // .then(data => setArticle((prevState) => [...prevState, ...data]))
             .catch(err => {
                 // Do something for an error here
                 console.log("Error Reading data " + err);
             });
     }, [])
+
 
     return (
         <div className={classes.articleBlock}>
@@ -54,7 +64,7 @@ const Articles = () => {
                         {article ?
                             article.map(item => (
                                 <ListItemLink href={`/articles/${item.idArticle}`}>
-                                    <ListItemText primary={ item.title} />
+                                    <ListItemText primary={item.title}/>
                                 </ListItemLink>
                             ))
                             : ''}
@@ -63,12 +73,12 @@ const Articles = () => {
                 </CardContent>
             </Card>
             <Card className={classes.articlesBox}>
-                {  article ?
+                {article ?
                     article.map(item =>
                         <SmallArticle title={item.title}
                                       text={item.contents}
                                       id={item.idArticle}
-                        img={item.pathFull}/>                      )
+                                      img={item.pathFull}/>)
                     : 'loading'
                 }
             </Card>

@@ -11,6 +11,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import GallerySingle from "../Gallery/GallerySingle";
 import GalleryDouble from "../Gallery/GalleryDouble";
 import GalleryElite from "../Gallery/GalleryElite";
+import {useDispatch, useSelector} from "react-redux";
 
 // Стилі
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +61,9 @@ function ScrollTop(props) {
 
 // Сторінка користувача
 const User_Page = (props) => {
+
     const classes = useStyles();
+
     return (<>
             <div className={classes.content}>
                 <Header/>
